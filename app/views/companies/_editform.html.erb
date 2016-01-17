@@ -1,0 +1,29 @@
+<%= form_for(@company) do |f| %>
+	<% if @company.errors.any? %>
+		<div class="row">
+			<div class="large-12 columns">
+				<div class="errors">
+					<strong>
+						<%= pluralize(@company.errors.count, "error") %>
+						 prevented you from signing up:
+					</strong>	
+					<ul>
+						<% @company.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	<% end %>
+	<div class="row">
+		<div class="large-9 columns">
+			<%= f.text_field :title, value: @company.title %>
+		</div>
+		<div class="large-3 columns">
+			<%= button_tag(type: 'submit', class: 'tiny success button action-right') do %>
+				Save
+			<% end %>
+		</div>
+	</div>
+<% end %>

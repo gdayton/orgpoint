@@ -1,0 +1,89 @@
+.edit{
+	margin-top:20px;
+}
+.action-right{
+	position:relative;
+	top:2px;
+}
+.location{
+	width:25%;
+	float:left;
+	padding-right:20px;
+}
+.location-title{
+	background-color:#eee;
+	text-overflow:ellipsis;
+	height:34px;
+	width:auto;
+	overflow:hidden;
+	padding-left:10px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.location-action{
+	float:right;
+}
+.department{
+	width:25%;
+	float:left;
+	padding-right:20px;
+}
+.department-title{
+	background-color:#eee;
+	text-overflow:ellipsis;
+	height:34px;
+	width:auto;
+	overflow:hidden;
+	padding-left:10px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.department-action{
+	float:right;
+}
+.main-edit{
+	padding:10px;
+}
+.edit h4.title{
+	float:right;
+}
+.edit p.hint{
+	float:right;
+	color:gray;
+	font-size:13px;
+}
+.edit p.hint-nopos{
+	font-size:13px;
+	color:gray;
+	margin-left:10px;
+}
+.edit .emang-btn{
+	margin-left:10px;
+	margin-top:5px;
+}
+.employee-row{
+}
+.noemps{
+	padding:10px;
+	background-color:#f7f7f7;
+}.noemps p{
+	padding:0px;
+	margin:0px;
+}
+.edit .req{
+	color:red;
+}
+.errors{
+	background-color:#ffd4d4;
+	padding-top:20px;
+	padding-left:20px;
+	padding-right:20px;
+	padding-bottom:1px;
+	margin-bottom:20px;
+}
+.errors ul{
+	
+}
+.errors li{
+	list-style:circle;
+}

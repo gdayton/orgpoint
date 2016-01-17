@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "mainr" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body onload="init();">
+	  
+  	<div class="contain-to-grid sticky">
+	  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+		  <ul class="title-area">
+			  <li class="name">
+			  	<h1><a href="#">Directory</a></h1>
+			  </li>
+			  <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+		  </ul>
+		  
+		  <style type="text/css">
+	      	#search{
+		      	background-color:white;
+		      	border-radius:5px;
+		      	border:1px solid white;
+	      	} 
+		  </style>
+		  
+		  <section class="top-bar-section">
+		    <!-- Right Nav Section -->
+		    <ul class="right">
+			    <!--<li>
+					<%= text_field_tag :search, nil, placeholder: 'Search for people' %>
+				</li>-->
+			    <li>
+					<a style="color:#2976eb; font-weight:bold;" href=""><i class="fi-list"></i> Recent</a>
+				</li>
+				<li>
+					<a style="color:#1fc83b; font-weight:bold;" href=""><i class="fi-graph-pie"></i> Stats</a>
+				</li>
+				<li>
+					<input type="text" name="search" id="search" placeholder="Search for coworkers" />
+				</li>
+			    <% if current_user %>
+				  <li class="has-dropdown">
+				        <a href="#"><%= current_user.first_name %> <%= current_user.last_name %> ( <%= current_user.company.title %> )</a>
+				        <ul class="dropdown">
+					      <li><a href="/user-info/1"><i class="fi-torso"></i> My Profile</a></li>
+					      <li><a href="/settings"><i class="fi-widget"></i> Settings</a></li>
+					      <!--<% if current_user.first_name == 1 %>
+								<li><a href="/admin-console"><i class="fi-web"></i> Admin Console</a></li>
+						  <% end %>-->
+					      <li><a href="/logout"><i class="fi-power"></i> Logout</a></li>
+				        </ul>
+				  </li>
+				<% else %>
+				  <li><%= link_to 'Login', '/login' %></li>
+				<% end %>
+		    </ul>
+		  </section>
+	  </nav>
+	</div>
+
+    <%= yield %>
+
+    <div id="footer">
+	    <center><p>Copyright 2016 | LiveRolodex</p></center>
+    </div>
+    
+  </body>
+</html>

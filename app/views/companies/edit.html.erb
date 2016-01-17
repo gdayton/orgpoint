@@ -1,0 +1,44 @@
+<div class="edit">
+	<div class="row">
+		<div class="large-3 columns">
+			<h4 class="title"><i class="fi-widget"></i> General</h4>
+		</div>
+		<div class="large-9 columns">
+			<div class="main-edit">
+				<%= render 'companies/editform' %>
+				<p style="margin-bottom:0px;">This account was created on <b><%= @company.created_at.strftime("%b %d, %Y") %></b></p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-3 columns">
+			<h4 class="title"><i class="fi-torso"></i> Employees</h4>
+			<p class="hint">Add, Edit, or Remove employees</p>
+		</div>
+		<div class="large-9 columns">
+			<%= button_to "Employee Management", edit_user_path(params[:id]), :method => "get", :class => "success tiny button emang-btn" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-3 columns">
+			<h4 class="title"><i class="fi-marker"></i> Location(s)</h4>
+			<p class="hint">Your company office locations.</p>
+		</div>
+		<div class="large-9 columns">
+			<div class="main-edit">
+				<%= render 'locations/editform' %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-3 columns">
+			<h4 class="title"><i class="fi-clipboard-notes"></i> Departments</h4>
+			<p class="hint">Departments within your company.</p>
+		</div>
+		<div class="large-9 columns">
+			<div class="main-edit">
+				<%= render 'departments/editform' %>
+			</div>
+		</div>
+	</div>
+</div>
