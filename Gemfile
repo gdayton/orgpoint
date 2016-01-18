@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'rails_12factor', group: :production
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -48,6 +50,8 @@ group :development, :test do
   gem 'spring'
 
   # Use sqlite3 as the database for active record.
-  gem 'sqlite3', '1.3.10'
+  #gem 'sqlite3', '1.3.10'
 end
+
+ruby "2.2.0"
 
