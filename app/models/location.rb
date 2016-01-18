@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  belongs_to :company, class_name: 'Company'
+  #belongs_to :company
   
   validates :title, presence: true
 end
