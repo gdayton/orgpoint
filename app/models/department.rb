@@ -1,5 +1,5 @@
 class Department < ActiveRecord::Base
-  belongs_to :company
-  
-  validates :title, presence: true
+	validates :title, presence: true
+	
+	belongs_to :company
 end
