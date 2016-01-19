@@ -10,8 +10,12 @@ default: &default
   pool: 5
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: orgpoint_dev
+  pool: 5
+  username: admin
+  password: this
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
