@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
 			  #TODO redirect_to u.company.url
 		  else
 		  	  format.html { redirect_to login_path, notice: 'You must confirm your email!' }
+		  end
 	  else
 		  redirect_to '/login'
 		  #TODO pass an error, that login failed
