@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
+  resources :users do
+	  member do
+		  get :confirm_email
+	  end
+  end
+  resources :locations
   resources :departments
   resources :companies
-  resources :users
-  resources :sessions
-  resources :locations
   
-  get 'signup', to: 'users#new', as: 'signup'
-  
-  get 'login',  to: 'sessions#new', as: 'login'
-  get 'logout', to: 'sessions#destroy', as: 'logout'
-  
-  #root 'companies#index'
   root 'layouts#index'
+  
+  get '/onboard' => 'layouts#onboard'
+  
+  get '/login'  => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,10 +1,6 @@
-<div class="edit">
-	<div class="row">
-		<div class="large-12 columns">
-			<h4>Employee Management</h4>
-			<%= button_to "New Employee", new_user_path, :method => "get", :class => "tiny button", :style => "float:right;" %>
-			<%= button_to "Back to settings", edit_company_path(params[:id]), :method => "get", :class => "success tiny button" %>
-		</div>
-	</div>
-	<%= render 'users/editform' %>
-</div>
+<h1>Editing User</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>

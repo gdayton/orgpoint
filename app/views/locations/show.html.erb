@@ -1,5 +1,14 @@
-<div class="row">
-	<div class="large-12 columns">
-		<%= render @location %>
-	</div>
-</div>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @location.title %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @location.company %>
+</p>
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>

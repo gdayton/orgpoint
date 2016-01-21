@@ -1,22 +1,5 @@
-<%= form_for(@location) do |f| %>
-	<% if @location.errors.any? %>
-		<div class="errors">
-			<strong>
-				<%= pluralize(@location.errors.count, "error") %>
-				 prevented you from signing up:
-			</strong>	
-			<ul>
-				<% @location.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-	
-	<div class="form-group">
-		<%= f.label :title %>
-		<%= f.text_field :title %>
-	</div>
-	
-	<%= f.submit "Create Location" %>
-<% end %>
+<h1>New Location</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', locations_path %>

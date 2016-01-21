@@ -35,9 +35,6 @@
 		  <section class="top-bar-section">
 		    <!-- Right Nav Section -->
 		    <ul class="right">
-			    <!--<li>
-					<%= text_field_tag :search, nil, placeholder: 'Search for people' %>
-				</li>-->
 			    <li>
 					<a style="color:#2976eb; font-weight:bold;" href=""><i class="fi-list"></i> Recent</a>
 				</li>
@@ -49,18 +46,15 @@
 				</li>
 			    <% if current_user %>
 				  <li class="has-dropdown">
-				        <a href="#"><%= current_user.first_name %> <%= current_user.last_name %> ( <%= current_user.company.title %> )</a>
+				        <a href="#"><%= current_user.first_name %> <%= current_user.last_name %></a>
 				        <ul class="dropdown">
 					      <li><a href="/user-info/1"><i class="fi-torso"></i> My Profile</a></li>
 					      <li><a href="/settings"><i class="fi-widget"></i> Settings</a></li>
-					      <!--<% if current_user.first_name == 1 %>
-								<li><a href="/admin-console"><i class="fi-web"></i> Admin Console</a></li>
-						  <% end %>-->
 					      <li><a href="/logout"><i class="fi-power"></i> Logout</a></li>
 				        </ul>
 				  </li>
 				<% else %>
-				  <li><%= link_to 'Login', '/login' %></li>
+				  <li><%= link_to 'Login', login_path %></li>
 				<% end %>
 		    </ul>
 		  </section>

@@ -1,0 +1,8 @@
+Howdy <%= @user.first_name %> <%= @user.last_name %>,
+
+Thank you for choosing OrgPoint!
+
+Once you confirm your email address, you can setup <%= @user.company.title %> further!
+
+Click to confirm email address:
+<%= confirm_email_user_url(@user.verified_token) %>

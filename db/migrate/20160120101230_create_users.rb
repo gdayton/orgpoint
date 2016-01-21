@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email
+      t.references :company, index: true, foreign_key: true
+      t.integer :permissions
 
       t.timestamps null: false
     end

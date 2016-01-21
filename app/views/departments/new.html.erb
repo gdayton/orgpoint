@@ -1,22 +1,5 @@
-<%= form_for(@department) do |f| %>
-	<% if @department.errors.any? %>
-		<div class="errors">
-			<strong>
-				<%= pluralize(@department.errors.count, "error") %>
-				 prevented you from signing up:
-			</strong>	
-			<ul>
-				<% @department.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-	
-	<div class="form-group">
-		<%= f.label :title %>
-		<%= f.text_field :title %>
-	</div>
-	
-	<%= f.submit "Create Department" %>
-<% end %>
+<h1>New Department</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', departments_path %>
