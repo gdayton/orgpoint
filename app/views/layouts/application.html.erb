@@ -60,6 +60,26 @@
 		  </section>
 	  </nav>
 	</div>
+	<% if flash[:alert] %>
+		<div class="row">
+			<div class="large-12 column">
+				<div data-alert class="alert-box alert radius flash-banner-error">
+				  <%= flash[:alert] %>
+				  <a href="" class="close">&times;</a>
+				</div>
+			</div>
+		</div>
+	<% end %>
+	<% if flash[:notice] %>
+		<div class="row">
+			<div class="large-12 column">
+				<div data-alert class="alert-box radius flash-banner-notice">
+				  <%= flash[:notice] %>
+				  <a href="" class="close">&times;</a>
+				</div>
+			</div>
+		</div>
+	<% end %>
 
     <%= yield %>
 

@@ -7,10 +7,11 @@ class SessionsController < ApplicationController
 	  if u && u.authenticate(params[:password])
 		  if u.verified
 			  session[:user_id] = u.id
-			  redirect_to '/'
-			  #TODO redirect_to u.company.url
+			  flash[:notice] = "Welcome back!"
+			  redirect_to root_path
 		  else
-		  	  format.html { redirect_to login_path, notice: 'You must confirm your email!' }
+		  	  flash[:alert] = "You must confirm your email! #{ u.id }"
+			  redirect_to login_path
 		  end
 	  else
 		  redirect_to '/login'
