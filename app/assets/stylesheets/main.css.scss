@@ -1,3 +1,10 @@
+body{
+	/*background-image: url('https://images.unsplash.com/photo-1429667947446-3c93a979b7e0?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=361052673f2a5abb91e02cc69a8d1ebf');*/
+	background-image:url('https://images.unsplash.com/photo-1430843415799-496615fe798c?crop=entropy&dpr=2&fit=crop&fm=jpg&h=625&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1250');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
 .edit{
 	margin-top:20px;
 }
@@ -87,12 +94,6 @@
 .errors li{
 	list-style:circle;
 }
-
-.banner{
-	background-image:url('http://s23.postimg.org/byn081gp7/banner_cropped.jpg');
-	width:100%;
-	background-repeat:none;
-}
 .flash-banner-error{
 	margin-top:10px;
 	padding:5px;
@@ -100,4 +101,28 @@
 .flash-banner-notice{
 	margin-top:10px;
 	padding:5px;
+}
+.home-banner{
+	/*background-image:url('http://s9.postimg.org/sn1zed5rj/orgpoint_banner_small.png');
+	background-repeat:no-repeat;
+	background-size:cover;
+	width:100%;*/
+}
+.home-banner .banner h2{
+	color:white;
+	text-align:center;
+	/*background-color:rgba(0,0,0,.5);
+	padding-left:10px;*/
+}
+.home-banner .info h4{
+	color:#ff8800;
+}
+.home-banner .info-banner{
+	background-color:rgb(200,200,200);
+}
+.item-back{
+	padding-top:30px;
+	background-color:rgba(200,200,200,.6);
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
 }
