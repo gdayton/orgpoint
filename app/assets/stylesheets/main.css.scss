@@ -1,9 +1,19 @@
 body{
-	/*background-image: url('https://images.unsplash.com/photo-1429667947446-3c93a979b7e0?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=361052673f2a5abb91e02cc69a8d1ebf');*/
-	background-image:url('https://images.unsplash.com/photo-1430843415799-496615fe798c?crop=entropy&dpr=2&fit=crop&fm=jpg&h=625&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1250');
+	/*background-image: url('https://images.unsplash.com/photo-1429667947446-3c93a979b7e0?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=361052673f2a5abb91e02cc69a8d1ebf');
+	  https://images.unsplash.com/photo-1430843415799-496615fe798c?crop=entropy&dpr=2&fit=crop&fm=jpg&h=625&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1250
+	  https://images.unsplash.com/photo-1429667947446-3c93a979b7e0?crop=entropy&dpr=2&fit=crop&fm=jpg&h=625&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1275
+	  https://images.unsplash.com/photo-1445194020677-e9b88754da4b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=4d346eaba1441261b8d0150cf80daf72
+	  https://images.unsplash.com/photo-1447639703758-f525f36456bf?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=19105a31b54ba0333623f7dc3428f2fd      *** THE ONE ***
+	  https://images.unsplash.com/36/yJl7OB3sSpOdEIpHhZhd_DSC_1929_1.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=bff5aa50ae02b0c284e13c5b30b3aa4a
+	*/
+	background-image:url('https://images.unsplash.com/40/OTwgwURiQN6DLk8zIr8E_DSC00953.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=84da56babe46248e300a00c64ea4d87e');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size:cover;
+}
+#footer{
+	color:white;
+	margin-top:15px;
 }
 .edit{
 	margin-top:20px;
@@ -107,6 +117,17 @@ body{
 	background-repeat:no-repeat;
 	background-size:cover;
 	width:100%;*/
+	border:0px solid black;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.home-banner .banner{
+	padding:20px;
+}
+.home-banner .banner .border-img{
+	border:2px solid rgb(200,200,200);
+	border-radius:3px;
+	-moz-border-radius:3px;
 }
 .home-banner .banner h2{
 	color:white;
@@ -120,9 +141,24 @@ body{
 .home-banner .info-banner{
 	background-color:rgb(200,200,200);
 }
-.item-back{
-	padding-top:30px;
+.home-banner .info-banner-c{
+	background-color:rgba(200,200,200,.8);
+}
+.home-banner .info-banner-w{
+	background-color:white;
+}
+.home-banner .info-banner-r{
+	background-color:rgba(200,200,200,.8);
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.container-shading{
 	background-color:rgba(200,200,200,.6);
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
+	padding-top:30px;
+
+}
+.feat-desc{
+	padding-top:20px;
 }

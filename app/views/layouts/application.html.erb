@@ -18,7 +18,7 @@
   	<div class="contain-to-grid sticky">
 	  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
 		  <ul class="title-area">
-			  <li class="name">
+			  <li class="name" id="orgpoint-logo">
 			  	<h1><a href="/""><b>Org</b>Point</a></h1>
 			  </li>
 			  <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -35,15 +35,17 @@
 		  <section class="top-bar-section">
 		    <!-- Right Nav Section -->
 		    <ul class="right">
-			    <li>
-					<a style="color:#2976eb; font-weight:bold;" href=""><i class="fi-list"></i> Recent</a>
-				</li>
-				<li>
-					<a style="color:#1fc83b; font-weight:bold;" href=""><i class="fi-graph-pie"></i> Stats</a>
-				</li>
-				<li>
-					<input type="text" name="search" id="search" placeholder="Search for coworkers" />
-				</li>
+		    	<% if current_user %>
+				    <li>
+						<a style="color:#2976eb; font-weight:bold;" href=""><i class="fi-list"></i> Recent</a>
+					</li>
+					<li>
+						<a style="color:#1fc83b; font-weight:bold;" href=""><i class="fi-graph-pie"></i> Stats</a>
+					</li>
+					<li>
+						<input type="text" name="search" id="search" placeholder="Search for coworkers" />
+					</li>
+				<% end %>
 			    <% if current_user %>
 				  <li class="has-dropdown">
 				        <a href="#"><%= current_user.first_name %> <%= current_user.last_name %></a>
@@ -84,7 +86,7 @@
     <%= yield %>
 
     <div id="footer">
-	    <center><p>Copyright 2016 | OrgStats</p></center>
+	    <center><p>Copyright 2016 | OrgPoint</p></center>
     </div>
     
   </body>
