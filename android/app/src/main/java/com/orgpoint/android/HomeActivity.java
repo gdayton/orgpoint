@@ -17,7 +17,9 @@ public class HomeActivity extends AppCompatActivity {
 
     button.setOnClickListener();
 
+
     Log.d("LOG", "This is a test log");
+    Log.d("log", "I wrote this");
 
   }
 
