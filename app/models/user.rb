@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   
   belongs_to :company
   
-  private
+  #private
   
   def verification_token
 	  if self.verified_token.blank?
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 	  save!(:validate => false)
   end
   
-  def find_by_confirm_token(token)
+  def self.find_by_confirm_token(token)
 	  u = User.where(verification_token: token)
 	  if u
 		  return u
