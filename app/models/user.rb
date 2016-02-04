@@ -15,12 +15,6 @@ class User < ActiveRecord::Base
 	  end
   end
   
-  def email_verified
-	  self.verified = true
-	  self.verified_token = nil
-	  save!(:validate => false)
-  end
-  
   def self.find_by_confirm_token(token)
 	  u = User.where(verified_token: token)
 	  if u
