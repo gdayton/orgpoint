@@ -47,8 +47,9 @@ class UsersController < ApplicationController
   
   def confirm_email
 	 @user = User.find_by_confirm_token(params[:id])
-	 if @user 
+	 if @user
 		 user.email_verified
+		 user.save
 		 format.html { redirect_to root_path, notice: 'Email verified!' }
 		 format.json { render :show, status: :ok, location: @user }
      else

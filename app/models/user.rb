@@ -20,5 +20,14 @@ class User < ActiveRecord::Base
 	  self.verified_token = nil
 	  save!(:validate => false)
   end
- 
+  
+  def find_by_confirm_token(token)
+	  u = User.where(verification_token: token)
+	  if u
+		  return u
+	  else
+	  	  return nil
+	  end
+  end
+  
 end
