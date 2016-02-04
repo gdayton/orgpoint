@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   end
   
   def self.find_by_confirm_token(token)
-	  u = User.where(verified_token: token)
+	  u = User.where(verified_token: token).first
 	  if u
 		  return u
 	  else
