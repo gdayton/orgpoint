@@ -42,8 +42,7 @@
         android:id="@+id/username"
         android:hint="username"
         android:paddingLeft="0dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="50dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
