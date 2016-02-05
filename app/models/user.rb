@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   
   belongs_to :company
   
-  private
+  #private
   
   def verification_token
 	  if self.verified_token.blank?
@@ -15,10 +15,13 @@ class User < ActiveRecord::Base
 	  end
   end
   
-  def email_verified
-	  self.verified = true
-	  self.verified_token = nil
-	  save!(:validate => false)
+  def self.find_by_confirm_token(token)
+	  u = User.where(verified_token: token).first
+	  if u
+		  return u
+	  else
+	  	  return nil
+	  end
   end
- 
+  
 end

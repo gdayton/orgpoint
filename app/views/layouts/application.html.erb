@@ -86,7 +86,11 @@
     <%= yield %>
 
     <div id="footer">
-	    <center><p>Copyright 2016 | OrgPoint | <a href="/terms">Terms</a></p></center>
+		<% if current_page?(:controller => 'layouts', :action => 'index') %> 
+	    	<center><p style="color:white;">Copyright 2016 | OrgPoint | <a href="/terms">Terms</a></p></center>
+	    <% else %>
+	    	<center><p>Copyright 2016 | OrgPoint | <a href="/terms">Terms</a></p></center>
+	    <% end %>
     </div>
     
   </body>
