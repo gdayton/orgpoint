@@ -24,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+
     //Does stuff when the log in button is pressed
     public void logInButtonPress(){
         Button logInButton = (Button)findViewById(R.id.logInButton);
