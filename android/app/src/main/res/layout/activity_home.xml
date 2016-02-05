@@ -12,50 +12,64 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="log in"
-        android:id="@+id/button2"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:onClick="logIn" />
+        android:layout_centerInParent="true"
+        android:text="Log In"
+        android:id="@+id/logInButton"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Please log in"
+        android:text="Welcome to OrgPoint!"
         android:id="@+id/textView"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="register an account"
-        android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:backgroundTint="#e8e8e8"
+        android:padding="16dp"/>
 
     <EditText
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/username"
+        android:inputType="textPersonName"
+        android:text=""
+        android:ems="10"
+        android:id="@+id/home_Username"
+        android:padding= '16dp'
+        android:layout_above="@+id/home_Password"
+        android:layout_alignParentEnd="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:hint="username"
         android:paddingLeft="0dp"
         android:layout_marginLeft="50dp"
         android:layout_centerVertical="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Username"
+        android:id="@+id/usernameTextView"
+        android:layout_alignTop="@+id/home_Username"
+        android:layout_alignParentLeft="@+id/home_Username"
+        android:padding= '16dp'
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
+        android:text=""
         android:ems="10"
-        android:id="@+id/editText"
-        android:layout_marginLeft="30dp"
-        android:layout_above="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="88dp"
-        android:hint="password" />
+        android:id="@+id/home_Password"
+        android:padding= '16dp'
+        android:layout_above="@+id/logInButton"
+        android:layout_alignParentEnd="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Password:"
+        android:id="@+id/passwordTextView"
+        android:padding= '16dp'
+        android:layout_above="@+id/logInButton"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
