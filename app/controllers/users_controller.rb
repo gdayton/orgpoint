@@ -47,15 +47,18 @@ class UsersController < ApplicationController
   
   def confirm_email
 	 @user = User.find_by_confirm_token(params[:id])
-	 if @user
-		 @user.verified = true
-	     @user.verified_token = nil
-		 @user.save
-		 format.html { redirect_to root_path, notice: 'Email verified!' }
-		 format.json { render :show, status: :ok, location: @user }
-     else
-     	format.html { redirect_to root_path, notice: 'Unrecognized hash!' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+	 
+	 respond_to do |format|
+		if @user
+			@user.verified = true
+		    @user.verified_token = nil
+			@user.save
+			format.html { redirect_to root_path, notice: 'Email verified!' }
+			format.json { render :show, status: :ok, location: @user }
+	    else
+	     	format.html { redirect_to root_path, notice: 'Unrecognized hash!' }
+	        format.json { render json: @user.errors, status: :unprocessable_entity }
+	    end
      end
   end
 
