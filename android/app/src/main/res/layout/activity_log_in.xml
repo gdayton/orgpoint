@@ -7,17 +7,30 @@
     tools:context=".LoginActivity"
     >
 
-    <TextView
-        android:id="@+id/orgpoint_label"
-        android:layout_width="wrap_content"
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome to OrgPoint"
-        android:textColor="@android:color/white"
-        android:textSize="26sp"
-        android:gravity="center"
-        android:fontFamily="sans-serif-light"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
-        />
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+        <!--<TextView-->
+            <!--android:id="@+id/orgpoint_label"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Welcome to OrgPoint"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="26sp"-->
+            <!--android:gravity="center"-->
+            <!--android:fontFamily="sans-serif-light"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="64dp"-->
+            <!--/>-->
+    </LinearLayout>
+
 
 </RelativeLayout>

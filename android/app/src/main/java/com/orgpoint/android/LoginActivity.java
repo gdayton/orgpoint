@@ -16,7 +16,6 @@ public class LoginActivity extends AppCompatActivity {
     //can we push plz
   }
 
-  hello world
 
   //Does stuff when the log in button is pressed
   //public void logInButtonPress(){
