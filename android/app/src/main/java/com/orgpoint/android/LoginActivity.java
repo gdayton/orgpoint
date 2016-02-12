@@ -12,6 +12,7 @@ public class LoginActivity extends AppCompatActivity {
     //
     //logInButtonPress();
 
+    // this is a comment
   }
 
 
