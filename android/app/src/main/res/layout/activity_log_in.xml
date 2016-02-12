@@ -19,19 +19,19 @@
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
-        <!--<TextView-->
-            <!--android:id="@+id/orgpoint_label"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Welcome to OrgPoint"-->
-            <!--android:textColor="@android:color/white"-->
-            <!--android:textSize="26sp"-->
-            <!--android:gravity="center"-->
-            <!--android:fontFamily="sans-serif-light"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:layout_marginTop="64dp"-->
-            <!--/>-->
-    </LinearLayout>
 
+    </LinearLayout>
+    <TextView
+        android:id="@+id/orgpoint_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to OrgPoint"
+        android:textColor="@android:color/black"
+        android:textSize="26sp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-light"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        />
 
 </RelativeLayout>
