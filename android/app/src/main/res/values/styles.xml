@@ -9,6 +9,10 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
+  <style name="AppTheme.LogInTheme">
+
+    <item name="android:windowBackground">@color/colorPrimary</item>
+  </style>
 
 
 
