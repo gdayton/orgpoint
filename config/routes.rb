@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :users do
 	  member do
 		  get :confirm_email
@@ -11,10 +12,6 @@ Rails.application.routes.draw do
   root 'layouts#index'
   
   get '/onboard' => 'layouts#onboard'
-  
-  get '/login'  => 'sessions#new'
-  post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

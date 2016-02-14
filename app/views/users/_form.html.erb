@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, html: { multipart: true } do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -20,6 +20,10 @@
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
+	<%= image_tag(@user.image.url(:small), :style => "float:right;") %>
+	<%= f.file_field :image %>
+  </div>
+  <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
@@ -27,18 +31,6 @@
     <%= f.label :company_id %><br>
     <%= f.collection_select :company_id, @companies.order(:title),:id,:title, include_blank: false %>
     <%= link_to "Add Company", new_company_path %> 
-  </div>
-  <div class="field">
-    <%= f.label :permissions %><br>
-    <%= f.number_field :permissions %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -32,10 +32,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-	   	# allow the user to be logged in, until they logout and
-	   	# must confirm their account.
-	    session[:user_id] = @user.id
-	    UserMailer.registration_confirmation_onboard(@user).deliver
+	    #UserMailer.registration_confirmation_onboard(@user).deliver
         format.html { redirect_to @user, notice: 'Verification Email sent to your email' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -45,23 +42,6 @@ class UsersController < ApplicationController
     end
   end
   
-  def confirm_email
-	 @user = User.find_by_confirm_token(params[:id])
-	 
-	 respond_to do |format|
-		if @user
-			@user.verified = true
-		    @user.verified_token = nil
-			@user.save
-			format.html { redirect_to root_path, notice: 'Email verified!' }
-			format.json { render :show, status: :ok, location: @user }
-	    else
-	     	format.html { redirect_to root_path, notice: 'Unrecognized hash!' }
-	        format.json { render json: @user.errors, status: :unprocessable_entity }
-	    end
-     end
-  end
-
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
@@ -96,6 +76,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :company_id, :permissions, :password, :password_confirmation, :verified, :verified_token)
+      params.require(:user).permit(:first_name, :last_name, :email, :company_id, :image)
     end
 end

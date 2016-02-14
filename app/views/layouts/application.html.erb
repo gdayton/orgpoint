@@ -48,15 +48,19 @@
 				<% end %>
 			    <% if current_user %>
 				  <li class="has-dropdown">
-				        <a href="#"><%= current_user.first_name %> <%= current_user.last_name %></a>
+				        <a href="#">
+				        <%= image_tag(current_user.image.url(:small), :style => "width:20px; margin-right:5px; margin-bottom:3px; border-radius:5px;") %>
+				        <b><%= current_user.first_name %> <%= current_user.last_name %></b>
+				        <span style="color:orange;"><%= current_user.company.title %></span>
+				        </a>
 				        <ul class="dropdown">
-					      <li><a href="/user-info/1"><i class="fi-torso"></i> My Profile</a></li>
-					      <li><a href="/settings"><i class="fi-widget"></i> Settings</a></li>
-					      <li><a href="/logout"><i class="fi-power"></i> Logout</a></li>
+					      <li><%= link_to('My Profile', user_path(current_user.id)) %></li>
+					      <li><%= link_to('Settings', edit_user_path(current_user.id)) %></li>
+					      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 				        </ul>
 				  </li>
 				<% else %>
-				  <li><%= link_to 'Login', login_path %></li>
+				  <li><%= link_to 'Login', user_session_path %></li>
 				<% end %>
 		    </ul>
 		  </section>
@@ -86,11 +90,7 @@
     <%= yield %>
 
     <div id="footer">
-		<% if current_page?(:controller => 'layouts', :action => 'index') %> 
-	    	<center><p style="color:white;">Copyright 2016 | OrgPoint</p></center>
-	    <% else %>
-	    	<center><p>Copyright 2016 | OrgPoint</p></center>
-	    <% end %>
+	    <center><p>Copyright 2016 | OrgPoint</p></center>
     </div>
     
   </body>

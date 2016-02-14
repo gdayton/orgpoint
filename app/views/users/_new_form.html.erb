@@ -28,18 +28,6 @@
     <%= f.collection_select :company_id, @companies.order(:title),:id,:title, include_blank: false %>
     <%= link_to "Add Company", new_company_path %> 
   </div>
-  <div class="field">
-    <%= f.label :permissions %><br>
-    <%= f.number_field :permissions %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
