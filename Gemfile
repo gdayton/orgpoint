@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'paperclip'
 
+gem 'roo'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

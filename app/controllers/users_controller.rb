@@ -67,6 +67,11 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def import
+	 User.import(params[:file],Company.find(params[:company_id]))
+	 redirect_to users_url, notice: "Users were successfully imported." 
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

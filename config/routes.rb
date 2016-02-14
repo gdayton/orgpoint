@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 	  member do
 		  get :confirm_email
 	  end
+	  collection do
+		  post :import
+	  end
   end
   resources :locations
   resources :departments
