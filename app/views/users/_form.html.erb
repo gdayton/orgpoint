@@ -28,6 +28,10 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
+    <%= f.label :role %><br>
+    <%= f.text_field :role %>
+  </div>
+  <div class="field">
     <%= f.label :company_id %><br>
     <%= f.collection_select :company_id, @companies.order(:title),:id,:title, include_blank: false %>
     <%= link_to "Add Company", new_company_path %> 

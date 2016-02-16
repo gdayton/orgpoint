@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @company.title %>
-</p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<div class="row">
+	<div class="large-12 column">
+		<center><h1><%= @company.title %></h1></center>
+		<br /><br /><br /><hr />
+		<% @company.users.each do |user| %>
+			<h3><%= user.first_name %> <%= user.last_name %></h3>
+		<% end %>
+	</div>
+</div>
