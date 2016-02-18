@@ -38,9 +38,21 @@
 			        	No Manager
 			        <% end %>
 			    </td>
-		        <td><%= link_to 'Show', user %></td>
-		        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-		        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		        <td>
+			        <%= link_to user do %>
+			        	<i class="fi-page"></i>
+			        <% end %>
+		        </td>
+		        <td>
+			        <%= link_to edit_user_path(user) do %>
+			        	<i class="fi-clipboard-pencil"></i>
+			        <% end %>
+		        </td>
+		        <td>
+			        <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' } do %>
+			        	<i class="fi-trash"></i>
+			        <% end %>
+		        </td>
 		      </tr>
 		    <% end %>
 		  </tbody>

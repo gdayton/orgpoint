@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   #before_filter :authorize
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
+  helper_method :convert_video_platform
 
   # GET /users
   # GET /users.json
@@ -73,6 +75,18 @@ class UsersController < ApplicationController
 	 User.import(params[:file],Company.find(params[:company_id]))
 	 redirect_to users_url, notice: "Users were successfully imported." 
   end
+  
+  def convert_video_platform(num)
+	  humanized_numbers = {"0" => "Skype", 
+		  				   "1" => "Adobe Connect", 
+		  				   "2" => "Google Hangout", 
+		  				   "3" => "Cisco WebEx", 
+		  				   "4" => "Citrix GoToMeeting",
+		  				   "5" => "Polycom",
+		  				   "6" => "Zoom",
+		  				   "7" => "Facetime"}
+	  humanized_numbers[num.to_s]
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -82,6 +96,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :company_id, :image, :role, :manager_id)
+      params.require(:user).permit(:first_name, :last_name, :email, :company_id, :image, :role, :manager_id, :mobile_phone, :work_phone, :start_date, :video_platform, :video_handle, :about_me, :resp)
     end
 end
