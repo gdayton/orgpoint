@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+	@users = User.all
 	@companies = Company.all
   end
 
@@ -81,6 +82,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :company_id, :image, :role)
+      params.require(:user).permit(:first_name, :last_name, :email, :company_id, :image, :role, :manager_id)
     end
 end

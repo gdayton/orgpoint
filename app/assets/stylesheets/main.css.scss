@@ -163,3 +163,29 @@ body{
 .push-std{
 	margin-top:30px;
 }
+.nav-company{
+	border:none;
+}
+.nav-company td{
+	background-color:white;
+	text-align:center;
+}
+.nav-company .name-nav{
+	font-size:30px;
+	color:black;
+}
+.nav-company .name-nav-sec{
+	font-size:20px;
+	color:#909090;
+}
+.nav-company .manager-nav{
+	font-size:20px;
+	color:black;
+}
+.nav-company .manager-nav-sec{
+	font-size:15px;
+	color:#909090;
+}
+.coworkers a{
+	margin:0 5px;
+}

@@ -32,6 +32,10 @@
     <%= f.text_field :role %>
   </div>
   <div class="field">
+    <%= f.label :manager_id %><br>
+    <%= f.collection_select :manager_id, @users.order(:first_name),:id,:first_name, include_blank: false %>
+  </div>
+  <div class="field">
     <%= f.label :company_id %><br>
     <%= f.collection_select :company_id, @companies.order(:title),:id,:title, include_blank: false %>
     <%= link_to "Add Company", new_company_path %> 

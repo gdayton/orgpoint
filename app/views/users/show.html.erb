@@ -1,25 +1,81 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @user.company %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="row">
+	<div class="large-12 column">
+		<br />
+		<table class="nav-company" border="0" width="100%">
+			<% if !@user.manager.nil? %>
+				<tr>
+					<td></td>
+					<td>
+						<%= link_to user_path(@user.manager.id) do %>
+							<span class="manager-nav">
+								<%= @user.manager.first_name %> <%= @user.manager.last_name %>
+							</span>
+							<span class="manager-nav-sec">
+								<%= @user.manager.role %>
+							</span>
+						<% end %>
+					</td>
+					<td></td>
+				</tr>
+			<% end %>
+			<tr>
+				<td width="25%">
+					<% if !@user.coworkers_disp[0].nil? %>
+						<%= link_to user_path(@user.coworkers_disp[0].id) do %>
+							<span class="minor-nav"><i class="fi-arrow-left"></i> <%= @user.coworkers_disp[0].first_name %> <%= @user.coworkers_disp[0].last_name %></span>
+						<% end %>
+					<% end %>
+				</td>
+				<td width="50%">
+					<center><span class="name-nav"><%= @user.first_name %> <%= @user.last_name %></span> <span class="name-nav-sec"><%= @user.role %></span></center>
+				</td>
+				<td width="25%">
+					<% if !@user.coworkers_disp[1].nil? %>
+						<%= link_to user_path(@user.coworkers_disp[1].id) do %>
+							<span class="minor-nav"><%= @user.coworkers_disp[1].first_name %> <%= @user.coworkers_disp[1].last_name %> <i class="fi-arrow-right"></i></span>
+						<% end %>
+					<% end %>
+				</td>
+			</tr>
+			<% if !@user.reports.nil? %>
+				<tr>
+					<td colspan="3">
+						<div class="coworkers">
+							<% @user.reports.each do |user| %>
+								<%= link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %>
+							<% end %>
+						</div>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+		
+		<% if @user.image.url(:large) != "/images/large/missing.png" %>
+	    	<%= image_tag(@user.image.url(:large), :style => "width:150px;") %>
+	    <% else %>
+	    	<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:150px;" />
+	    <% end %>
+	    
+		<p>
+		  <strong>Email:</strong>
+		  <%= @user.email %>
+		</p>
+		
+		<p>
+		  <strong>Company:</strong>
+		  <%= @user.company %>
+		</p>
+		
+		<p>
+		  <strong>Managed by:</strong>
+		  	<% if !@user.manager.nil? %>
+		  		<%= @user.manager.first_name %> <%= @user.manager.last_name %>
+		    <% else %>
+		    	No Manager
+		  	<% end %>
+		</p>
+		
+		<%= link_to 'Edit', edit_user_path(@user) %> |
+		<%= link_to 'Back', users_path %>
+	</div>
+</div>

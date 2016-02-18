@@ -12,6 +12,7 @@
 		      <th>Last name</th>
 		      <th>Role</th>
 		      <th>Email</th>
+		      <th>Manager</th>
 		      <th colspan="3"></th>
 		    </tr>
 		  </thead>
@@ -26,10 +27,17 @@
 				    	<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:20px;" />
 				    <% end %>
 				</td>
-		        <td><%= user.first_name %></td>
+		        <td><%= link_to user.first_name, user_path(user.id) %></td>
 		        <td><%= user.last_name %></td>
 		        <td><%= user.role %></td>
 		        <td><%= user.email %></td>
+		        <td>
+			        <% if !user.manager.nil? %>
+			        	<%= user.manager.first_name %> <%= user.manager.last_name %>
+			        <% else %>
+			        	No Manager
+			        <% end %>
+			    </td>
 		        <td><%= link_to 'Show', user %></td>
 		        <td><%= link_to 'Edit', edit_user_path(user) %></td>
 		        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

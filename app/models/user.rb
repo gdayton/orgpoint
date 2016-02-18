@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   
   belongs_to :company
+  belongs_to :manager, class_name: "User"
+  has_many :posts
+  has_many :comments
   
   def self.import(file,company)
 	ss = open_spreadsheet(file)
@@ -38,5 +41,44 @@ class User < ActiveRecord::Base
     when ".xlsx" then Roo::Excelx.new(file.path)
     else raise "Unknown file type: #{file.original_filename}"
     end
+  end
+  
+  def reports
+	users = User.where(manager_id: self.id)
+  end
+  
+  def coworkers
+	begin
+		manager = User.find(self.manager_id)
+	rescue ActiveRecord::RecordNotFound
+		return []
+	end
+	coworkers = manager.reports.order(last_name: :desc)
+  end
+  
+  #returns a size 2 array, with 3 possibilities, [nil, nil], [nil, USER], [USER, nil]
+  def coworkers_disp
+	coworkers = self.coworkers
+	coworkers_count = coworkers.count
+	if coworkers_count > 0
+		# find the location of the current user in the Array
+		indexloc = coworkers.index(self)
+		
+		returnArray = [nil,nil]
+		
+		# handle the left side
+		if indexloc != 0
+			returnArray[0] = coworkers[indexloc - 1]
+		end
+		
+		# handle the right side
+		if indexloc != (coworkers_count - 1)
+			returnArray[1] = coworkers[indexloc + 1]
+		end
+			
+		return returnArray
+	else
+		return [nil,nil]
+	end
   end
 end

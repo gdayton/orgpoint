@@ -1,9 +1,11 @@
 <div class="row">
 	<div class="large-12 column">
 		<center><h1><%= @company.title %></h1></center>
-		<br /><br /><br /><hr />
+		<hr />
 		<% @company.users.each do |user| %>
-			<h3><%= user.first_name %> <%= user.last_name %></h3>
+			<%= link_to user_path(user.id) do %>
+				<h3><%= user.first_name %> <%= user.last_name %></h3>
+			<% end %>
 		<% end %>
 	</div>
 </div>
