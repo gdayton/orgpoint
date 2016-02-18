@@ -10,105 +10,105 @@
       </ul>
     </div>
   <% end %>
-</div>
-<div class="row">
-	<br />
-	<div class="large-2 column">
-		<% if @user.image.url(:large) != "/images/large/missing.png" %>
-	    	<%= image_tag(@user.image.url(:large), :style => "width:100%;") %>
-	    <% else %>
-	    	<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:100%;" />
-	    <% end %>
-	    <div class="field">
-		    <br />
-			<%= f.file_field :image %>
+  
+	<div class="row">
+		<br />
+		<div class="large-2 column">
+			<% if @user.image.url(:large) != "/images/large/missing.png" %>
+		    	<%= image_tag(@user.image.url(:large), :style => "width:100%;") %>
+		    <% else %>
+		    	<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:100%;" />
+		    <% end %>
+		    <div class="field">
+			    <br />
+				<%= f.file_field :image %>
+			</div>
+		</div>
+		<div class="large-10 column">
+			<div class="row">	
+				<div class="large-3 column"> 
+					<div class="field">
+					    <%= f.label :first_name %>
+					    <%= f.text_field :first_name %>
+					</div>
+				</div>
+				<div class="large-3 column"> 
+					<div class="field">
+					    <%= f.label :last_name %>
+					    <%= f.text_field :last_name %>
+					</div>
+				</div>
+				<div class="large-6 column"> 
+					<div class="field">
+					    <%= f.label "Title" %>
+					    <%= f.text_field :role %>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-2 column">
+					<div class="field">
+					    <%= f.label :mobile_phone %>
+					    <%= f.text_field :mobile_phone %>
+					</div>
+				</div>
+				<div class="large-2 column">
+					<div class="field">
+					    <%= f.label :work_phone %>
+					    <%= f.text_field :work_phone %>
+					</div>
+				</div>
+				<div class="large-3 large-offset-2 column">
+					<div class="field">
+					    <%= f.label :video_platform %>
+					    <%= f.select :video_platform, options_for_select([['Skype',0], ['Adobe Connect',1], ['Google Hangout', 2], ['Cisco WebEx', 3], ['Citrix GoToMeeting', 4], ['Polycom', 5], ['Zoom', 6], ['Facetime', 7]], selected: @user.video_platform) %>
+					</div>
+				</div>
+				<div class="large-3 columns">
+					<div class="field">
+					    <%= f.label "Conferencing Username" %>
+					    <%= f.text_field :video_handle %>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-6 column">
+					<div class="field">
+					    <%= f.label :about_me %>
+					    <%= f.text_area :about_me, :style => "height:125px;" %>
+					</div>
+				</div>
+				<div class="large-6 column">
+					<div class="field">
+					    <%= f.label "Responsibilities" %>
+					    <%= f.text_area :resp, :style => "height:125px;" %>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 column">
+					<div class="field">
+						<%= f.label :manager_id %><br>
+						<%= f.collection_select :manager_id, @users.order(:first_name),:id,:first_name, include_blank: false %>
+					</div>
+					<div class="field">
+						<%= f.label :company_id %><br>
+						<%= f.collection_select :company_id, @companies.order(:title),:id,:title, include_blank: false %>
+						<%= link_to "Add Company", new_company_path %> 
+					</div>
+					<div class="field">
+						<%= f.label :email %><br>
+						<%= f.text_field :email %>
+					</div>
+					<div class="field">
+						<%= f.label :start_date %><br>
+						<%= f.date_select :start_date, :start_year => 1940 %>
+					</div>
+					<div class="actions">
+						<%= f.submit "Save", :class => "button radius small" %>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="large-10 column">
-		<div class="row">	
-			<div class="large-3 column"> 
-				<div class="field">
-				    <%= f.label :first_name %>
-				    <%= f.text_field :first_name %>
-				</div>
-			</div>
-			<div class="large-3 column"> 
-				<div class="field">
-				    <%= f.label :last_name %>
-				    <%= f.text_field :last_name %>
-				</div>
-			</div>
-			<div class="large-6 column"> 
-				<div class="field">
-				    <%= f.label "Title" %>
-				    <%= f.text_field :role %>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-2 column">
-				<div class="field">
-				    <%= f.label :mobile_phone %>
-				    <%= f.text_field :mobile_phone %>
-				</div>
-			</div>
-			<div class="large-2 column">
-				<div class="field">
-				    <%= f.label :work_phone %>
-				    <%= f.text_field :work_phone %>
-				</div>
-			</div>
-			<div class="large-3 large-offset-2 column">
-				<div class="field">
-				    <%= f.label :video_platform %>
-				    <%= f.select :video_platform, options_for_select([['Skype',0], ['Adobe Connect',1], ['Google Hangout', 2], ['Cisco WebEx', 3], ['Citrix GoToMeeting', 4], ['Polycom', 5], ['Zoom', 6], ['Facetime', 7]], selected: @user.video_platform) %>
-				</div>
-			</div>
-			<div class="large-3 columns">
-				<div class="field">
-				    <%= f.label "Conferencing Username" %>
-				    <%= f.text_field :video_handle %>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-6 column">
-				<div class="field">
-				    <%= f.label :about_me %>
-				    <%= f.text_area :about_me, :style => "height:125px;" %>
-				</div>
-			</div>
-			<div class="large-6 column">
-				<div class="field">
-				    <%= f.label "Responsibilities" %>
-				    <%= f.text_area :resp, :style => "height:125px;" %>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-12 column">
-				<div class="field">
-					<%= f.label :manager_id %><br>
-					<%= f.collection_select :manager_id, @users.order(:first_name),:id,:first_name, include_blank: false %>
-				</div>
-				<div class="field">
-					<%= f.label :company_id %><br>
-					<%= f.collection_select :company_id, @companies.order(:title),:id,:title, include_blank: false %>
-					<%= link_to "Add Company", new_company_path %> 
-				</div>
-				<div class="field">
-					<%= f.label :email %><br>
-					<%= f.text_field :email %>
-				</div>
-				<div class="field">
-					<%= f.label :start_date %><br>
-					<%= f.date_select :start_date, :start_year => 1940 %>
-				</div>
-				<div class="actions">
-					<%= f.submit "Save", :class => "button radius small" %>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 <% end %>
