@@ -89,7 +89,7 @@
 				<div class="large-12 column">
 					<div class="field">
 						<%= f.label :manager_id %><br>
-						<%= f.collection_select :manager_id, @users.order(:first_name),:id,:first_name, include_blank: false %>
+						<%= f.collection_select :manager_id, @users.order(:id).unshift(@user_blank), :id, :first_name, include_blank: false %>
 					</div>
 					<div class="field">
 						<%= f.label :company_id %><br>

@@ -13,8 +13,17 @@
 //= require angular/angular
 //= require jquery
 //= require jquery_ujs
+//= require jquery-fileupload/basic
 //= require foundation
 //= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+//$(function(){ $(document).foundation(); });
+
+//$(document).ready(function(){
+//	$(document).foundation();
+//});
+
+$(document).on('ready page:load', function () {
+	$(function(){ $(document).foundation(); });
+});

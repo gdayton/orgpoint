@@ -1,4 +1,4 @@
-<div ng-app="profileMain">
+<div>
 	<div class="row">
 		<div class="large-12 column">
 			<br />
@@ -96,49 +96,45 @@
 					</div>
 				</div>
 			</div>
-			<div ng-controller="AddPhotoController as addPhoto">
+			<div>
 				<div class="row">
 					<div class="large-12 column">
-						<a link="javascript:void();" ng-click="addPhoto.popupAdd(); expanded = true" style="float:right; margin-top:8px;" class="secondary button tiny radius">Upload</a>
+						<%= link_to "Upload", new_photo_path, :style => "float:right; margin-top:8px;", :class => "secondary button tiny radius" %>
+						<!--<a link="javascript:void();" ng-click="addPhoto.popupCancel(); expanded = false" style="float:right; margin-top:8px;" class="alert button tiny radius">Cancel</a>-->
 						<h4>Photos</h4>
 					</div>
 				</div>
 				<div class="row image-profile">
-					<h1 ng-if="name">Hello, {{name}}</h1>
-					<div ng-hide="expanded">
-						<div class="large-2 column">
-							<img src="http://img1.rnkr-static.com/list_img/9433/1769433/C300/worst-qualities-in-a-person.jpg" />
-						</div>
-						<div class="large-2 column">
-							<img src="http://static1.squarespace.com/static/530ea539e4b0a39dbd7aae4a/t/530f9142e4b07533b73dfa99/1393529154772/family+on+beach.jpg" />
-						</div>
-						<div class="large-2 column">
-							<img src="https://www.kalispellregional.org/data/callout_buttons/buttons/makeanapptfamily.jpg" />
-						</div>
-						<div class="large-2 column">
-							<img src="http://theeconomiccollapseblog.com/wp-content/uploads/2013/07/Family-Photo-by-Eric-Ward-300x300.jpg" />
-						</div>
-						<div class="large-2 column">
-							<!--<img src="http://img1.rnkr-static.com/list_img/9433/1769433/C300/worst-qualities-in-a-person.jpg" />-->
-						</div>
-						<div class="large-2 column">
-							<!--<img src="http://img1.rnkr-static.com/list_img/9433/1769433/C300/worst-qualities-in-a-person.jpg" />-->
-						</div>
-					</div>
-					<div ng-show="expanded">
-						<div class="large-12 column">
-							<div class="switch radius tiny" style="float:right;">
-								<input id="postTimeline" type="checkbox" checked="checked" /> 
-								<label for="postTimeline"></label>
+					<div class="show-photos">
+						<% if @photos.count > 0 %>
+							<% @photos.each do |photo| %>
+								<div class="large-2 column">
+									<%= image_tag(photo.image.url(:small)) %>
+								</div>
+							<% end %>
+							<% if (@photos.each.count > 0) && (@photos.each.count < 6) %>
+								<%= content_tag :div, "", :class => "large-#{ ((6 - @photos.each.count) * 2) } column" %>
+							<% end %>
+						<% else %>
+							<div class="large-12 column">
+								<p>No photos</p>
 							</div>
-							<input type="file" style="width:auto;" />
-							<textarea width="100%;"></textarea>
-							<a href="" class="button radius tiny">Upload Photo</a>
-							<a href="" style="padding-left:10px; color:black;">Cancel</a>
+						<% end %>
+					</div>
+					<div class="upload-photos" style="display:none;">
+						<div class="large-12 column">
+							<form>
+								<div class="switch radius tiny" style="float:right; margin-bottom:0px; position:relative; bottom:2px;">
+									<input id="postTimeline" type="checkbox" checked="checked" />
+									<label for="postTimeline"></label>
+									<span style="position:relative; bottom:6px; color:#909090;">Post this photo onto timeline</span>
+								</div>
+								<input type="file" style="width:auto;" />
+								<textarea placeholder="Describe this photo..." width="100%;" ></textarea>
+								<input type="submit" class="button radius tiny" value="Upload Photo" />
+							</form>
 						</div>
 					</div>
-					
-					<input class="form-control" type="text" placeholder="Enter your name" autofocus ng-model="name">
 				</div>
 			</div>
 			<div class="row">
@@ -148,10 +144,26 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="large-12 column">  
+				<div class="large-12 column">
+					<br />
+					<h4><%= @user.first_name %>'s Reports</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 column indv-reports">  
 					<% if !@user.reports.nil? %>
 						<% @user.reports.each do |user| %>
-							<%= link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %>
+							<%= link_to user_path(user.id) do %>
+								<div class="report">
+									<% if user.image.url(:small) != "/images/small/missing.png" %>
+								    	<%= image_tag(user.image.url(:small), :style => "width:25px;") %>
+								    <% else %>
+								    	<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:25px;" />
+								    <% end %>
+									<span class="reports-name"><%= user.first_name %> <%= user.last_name %></span>
+									<span class="reports-pos"><%= user.role %></span>
+								</div>
+							<% end %>
 						<% end %>
 					<% end %>
 				</div>

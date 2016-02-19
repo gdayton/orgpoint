@@ -3,13 +3,3 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 # Backticks are important for the operation of this shit inside coffeescript
-
-profileMain = `angular.module('profileMain',[])
-	.controller('AddPhotoController', function(){
-		var addPhoto = this;
-		var expanded = true;
-		
-		addPhoto.popupAdd = function(){
-			
-		};
-	});`

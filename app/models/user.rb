@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   
   validates :email, :presence => true, :uniqueness => true
   
-  has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "400x400" }
+  has_attached_file :image, styles: { small: "64x64#", med: "100x100", large: "400x400" }
   
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   
@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   belongs_to :manager, class_name: "User"
   has_many :posts
   has_many :comments
+  has_many :photos
   
   def self.import(file,company)
 	ss = open_spreadsheet(file)

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+	@photos = Photo.where(user_id: params[:id]).order(created_at: :desc).limit(6)
   end
 
   # GET /users/new
@@ -24,6 +25,10 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
 	@users = User.all
+	@user_blank = User.new
+	@user_blank.first_name = "Root"
+	@user_blank.last_name = "aaaaa"
+	@user_blank.id = 0
 	@companies = Company.all
   end
 
