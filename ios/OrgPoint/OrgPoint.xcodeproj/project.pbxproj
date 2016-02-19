@@ -12,6 +12,7 @@
 		82B86B481C64194300840B5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B86B461C64194300840B5E /* Main.storyboard */; };
 		82B86B4A1C64194300840B5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B86B491C64194300840B5E /* Assets.xcassets */; };
 		82B86B4D1C64194300840B5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B86B4B1C64194300840B5E /* LaunchScreen.storyboard */; };
+		82DB2B0E1C769DAE00EF343A /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DB2B0D1C769DAE00EF343A /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		82B86B491C64194300840B5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82B86B4C1C64194300840B5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82B86B4E1C64194300840B5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82DB2B0D1C769DAE00EF343A /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			children = (
 				82B86B4B1C64194300840B5E /* LaunchScreen.storyboard */,
 				82B86B461C64194300840B5E /* Main.storyboard */,
+				82DB2B0D1C769DAE00EF343A /* CircleImage.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -120,6 +123,7 @@
 				TargetAttributes = {
 					82B86B3E1C64194300840B5E = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8Y4BB583GR;
 					};
 				};
 			};
@@ -161,6 +165,7 @@
 			files = (
 				82B86B451C64194300840B5E /* HomeController.swift in Sources */,
 				82B86B431C64194300840B5E /* AppDelegate.swift in Sources */,
+				82DB2B0E1C769DAE00EF343A /* CircleImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,10 +276,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = OrgPoint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.josecalles.OrgPoint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -282,10 +290,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = OrgPoint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.josecalles.OrgPoint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
