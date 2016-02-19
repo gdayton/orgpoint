@@ -10,4 +10,7 @@ class LayoutsController < ApplicationController
 		@company = Company.new
 		@user = User.new
 	end
+
+	def faq
+	end
 end
