@@ -32,17 +32,19 @@ public class LoginActivity extends AppCompatActivity {
   }
 
 
+  //For testing purposes:
+  //Email: admin
+  //Password: admin
+
   @OnClick(R.id.login_button)
-  protected void onLoginClicked(View view){
+  protected void onLoginClicked(View view) {
     String email = emailEdit.getText().toString();
     String password = passwordEdit.getText().toString();
-    if (password.equals("admin") && email.equals("admin@admin.com")) {
-      Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+    if (password.equals("admin") && email.equals("admin")) {
+      Toast.makeText(LoginActivity.this, "Logged in", Toast.LENGTH_SHORT).show();
       startActivity(new Intent(this, HomeActivity.class));
     } else {
-      Toast.makeText(LoginActivity.this, "Wrong", Toast.LENGTH_SHORT).show();
+      Toast.makeText(LoginActivity.this, "Incorrect email or password", Toast.LENGTH_SHORT).show();
     }
   }
-
-
 }

@@ -19,4 +19,5 @@
   <string name="title_messages">Messages</string>
   <string name="title_friends">Friends</string>
   <string name="title_home">Home</string>
+  <string name="placeholder_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut consequat tellus, vel faucibus risus. Suspendisse dolor dui, commodo vel accumsan quis, suscipit ut dolor. </string>
 </resources>

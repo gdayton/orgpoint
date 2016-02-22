@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/profile_item"
+        android:icon="@drawable/profile_item"
+        android:title="Profile"
+        />
+
+    <item
+        android:id="@+id/company_item"
+        android:icon="@drawable/company_item"
+        android:title="Company"
+        />
+
+    <item
+        android:id="@+id/timeline_item"
+        android:icon="@drawable/timeline_item"
+        android:title="Timeline"
+        />
+
+
+    <item
+        android:id="@+id/stats_item"
+        android:icon="@drawable/stats_item"
+        android:title="Stats"
+        />
+
+    <item
+        android:id="@+id/settings_item"
+        android:icon="@drawable/settings_item"
+        android:title="Settings"
+        />
+  </group>
+</menu>
