@@ -10,7 +10,6 @@ import UIKit
 
 class CircleImage: UIImageView {
 
-
     override func awakeFromNib() {
         self.layer.cornerRadius = self.layer.frame.width / 2
         self.clipsToBounds = true
