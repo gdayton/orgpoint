@@ -1,0 +1,6 @@
+framework module Pods_OrgPoint {
+  umbrella header "Pods-OrgPoint-umbrella.h"
+
+  export *
+  module * { export * }
+}
