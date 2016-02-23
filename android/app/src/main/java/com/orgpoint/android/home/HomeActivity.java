@@ -11,6 +11,7 @@ import android.view.View;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.orgpoint.android.R;
+import com.orgpoint.android.company.CompanyFragment;
 import com.orgpoint.android.profile.ProfileFragment;
 
 public class HomeActivity extends AppCompatActivity {
@@ -55,10 +56,25 @@ public class HomeActivity extends AppCompatActivity {
     if (currentItem != item.getItemId()) {
       getSupportActionBar().setTitle(item.getTitle().toString());
       currentItem = item.getItemId();
-      ProfileFragment fragment = ProfileFragment.getInstance();
-      getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+      swapFragment(item.getItemId());
+
     } else {
       drawerLayout.closeDrawer(GravityCompat.START);
+    }
+  }
+
+  private void swapFragment(int itemId){
+    switch (itemId){
+      case R.id.profile_item:
+        ProfileFragment profileFragment = ProfileFragment.getInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, profileFragment).commit();
+        break;
+
+      case R.id.company_item:
+        CompanyFragment companyFragment = CompanyFragment.getInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, companyFragment).commit();
+        break;
+
     }
   }
 
