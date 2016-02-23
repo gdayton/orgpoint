@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+let BASE_URL = "https://fathomless-cove-5739.herokuapp.com/"
+
+//Segues
+
+let SEG_LOGIN_TO_HOME = "loginToHome"

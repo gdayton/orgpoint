@@ -51,7 +51,7 @@ public class CompanyFragment  extends Fragment{
         Call<List<Company>> response = service.fetchCompanies();
         response.enqueue(new Callback<List<Company>>() {
             @Override
-            public void onResponse(Call<List<Company>> call, Response<List<Company>> response) {
+            public void onResponse(Call<List<Company>sssssssssssss> call, Response<List<Company>> response) {
                 List<Company> companyList = response.body();
 
                 //Just getting the only company there for now

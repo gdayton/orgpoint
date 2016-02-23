@@ -14,6 +14,7 @@ class OutlinedButton: UIButton {
     override func awakeFromNib() {
         self.layer.borderWidth = 1.0;
         self.layer.cornerRadius = 4.0;
+        self.layer.borderColor = UIColor.blackColor().CGColor
     }
 
 }
