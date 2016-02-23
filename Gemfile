@@ -40,6 +40,8 @@ gem 'paperclip'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'bower-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -52,8 +54,6 @@ group :development, :test do
   gem 'byebug'
   
   gem 'rspec-rails'
-  
-  gem 'bower-rails'
   
   gem 'therubyracer'
 

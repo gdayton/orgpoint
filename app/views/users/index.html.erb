@@ -19,11 +19,7 @@
 		    <% @users.each do |user| %>
 		      <tr>
 			    <td>
-				    <% if user.image.url(:small) != "/images/small/missing.png" %>
-				    	<%= image_tag(user.image.url(:small), :style => "width:20px;") %>
-				    <% else %>
-				    	<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:20px;" />
-				    <% end %>
+				    <%= image_tag(user.image.url(:small), :style => "width:20px;") %>
 				</td>
 		        <td><%= link_to user.first_name, user_path(user.id) %></td>
 		        <td><%= user.last_name %></td>

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 					med: '100x100',
 					large: '400x400'
 	            },
-                :default_url => "abc123",
+                :default_url => "/images/:style/missing.png",
                 :s3_host_name => "s3-us-west-1.amazonaws.com",
                 :storage => :s3,
                 :bucket => "orgpoint",
@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
 	header = ss.row(1)
 	(2..ss.last_row).each do |i|
 		row = Hash[[header, ss.row(i)].transpose]
-		user = find_by_id(row["id"]) || new
+		user = new
 		user.first_name = row["first_name"]
 		user.last_name = row["last_name"]
 		user.email = row["email"]

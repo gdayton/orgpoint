@@ -6,7 +6,7 @@ class Photo < ActiveRecord::Base
 					med: '400x400',
 					large: '800x800'
 	            },
-                :default_url => "abc123",
+                :default_url => "/images/:style/missing.png",
                 :s3_host_name => "s3-us-west-1.amazonaws.com",
                 :storage => :s3,
                 :bucket => "orgpoint",
