@@ -26,6 +26,11 @@ public class ProfileFragment extends Fragment {
 
   @Bind(R.id.profile_name)
   TextView profileName;
+  @Bind(R.id.email_address)
+  TextView emailAddress;
+  @Bind(R.id.profile_role)
+  TextView getRole;
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -50,6 +55,8 @@ public class ProfileFragment extends Fragment {
         List<User> userList = response.body();
         User user = userList.get(0);
         profileName.setText(user.getFirst_name() + user.getLast_name());
+        getRole.setText(user.getRole());
+        emailAddress.setText(user.getEmail());
       }
 
       @Override
