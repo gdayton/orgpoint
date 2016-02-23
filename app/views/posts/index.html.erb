@@ -1,6 +1,11 @@
 <div class="row">
 	<div class="large-12 column">
-		<h2>Shivam, this should be the timeline</h2>
+		<div>
+			<a class="button radius tiny">New Post</a>
+			<div ng-show="expanded">
+				<div><%= render 'form'%></div>
+			</div>	
+		</div>	
 		<table>
 		  <thead>
 		    <tr>
