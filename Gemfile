@@ -51,6 +51,8 @@ group :development, :test do
   
   gem 'rspec-rails'
   
+  gem 'aws-sdk', '< 2.0'
+  
   gem 'bower-rails'
   
   gem 'therubyracer'
