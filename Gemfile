@@ -35,7 +35,7 @@ gem 'roo'
 
 gem 'cancan'
 
-gem 'rack-ssl-enforcer'
+#gem 'rack-ssl-enforcer'
 
 gem 'aws-sdk', '< 2.0'
   

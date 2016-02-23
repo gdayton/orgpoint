@@ -109,7 +109,6 @@ GEM
       mimemagic (= 0.3.0)
     pg (0.18.4)
     rack (1.6.4)
-    rack-ssl-enforcer (0.2.9)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
@@ -222,7 +221,6 @@ DEPENDENCIES
   jquery-rails
   paperclip
   pg (~> 0.18.4)
-  rack-ssl-enforcer
   rails (= 4.2.1)
   rails_12factor
   roo
