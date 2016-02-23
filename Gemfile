@@ -31,8 +31,6 @@ gem 'rails_12factor', group: :production
 
 gem 'devise'
 
-gem 'paperclip'
-
 gem 'roo'
 
 # Use Unicorn as the app server
@@ -51,7 +49,9 @@ group :development, :test do
   
   gem 'rspec-rails'
   
-  gem 'aws-sdk', '< 2.0'
+  gem 'aws-sdk', '~> 2'
+  
+  gem 'paperclip'
   
   gem 'bower-rails'
   
