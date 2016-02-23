@@ -1,5 +1,33 @@
+<script type="text/javascript">
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['Production',     			11],
+      ['R&D',      					 2],
+      ['Purchasing', 				 5],
+      ['Marketing', 				 9],
+      ['Human Resource Management', 12],
+      ['Accounting & Finance', 		10]
+    ]);
+    
+    var options = {
+      title: '',
+      pieHole: 0.4,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+    chart.draw(data, options);
+  }
+</script>
 <div class="row">
-	<div class="large-12 column">
-		<h1>Stats Page</h1>
+	<br />
+	<div class="large-4 column">
+		<span class="overall-number">126</span><br />
+		<span class="overall-number-label">Employees</span>
+	</div>
+	<div class="large-8 column">
+		<div id="donutchart" style="width: 900px; height: 500px;"></div>
 	</div>
 </div>
