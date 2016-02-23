@@ -2,7 +2,7 @@
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
+        var data = google.visual.arrayToDataTable([
           ['Dinosaur', 'Length'],
           ['Acrocanthosaurus (top-spined lizard)', 12.2],
           ['Albertosaurus (Alberta lizard)', 9.1],
@@ -38,10 +38,11 @@
           legend: { position: 'none' },
         };
 
-        var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+        var chart = new google.visual.Histogram(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
     </script>
+
 <script type="text/javascript">
   google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
