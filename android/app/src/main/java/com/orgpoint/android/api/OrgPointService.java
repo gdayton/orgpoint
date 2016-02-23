@@ -11,4 +11,6 @@ import retrofit2.http.GET;
 public interface OrgPointService {
     @GET("companies.json")
     Call <List<Company>> fetchCompanies ();
+    @GET("users.json")
+    Call <List<User>> fetchUsers ();
 }
