@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceGenerator {
 
-    public static final String BASE_URL = "https://www.orgpoint.com/";
+    public static final String BASE_URL = "https://fathomless-cove-5739.herokuapp.com/";
 
     public static OrgPointService getOrgPointService (){
         HttpLoggingInterceptor logger = new HttpLoggingInterceptor();

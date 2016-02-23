@@ -29,7 +29,7 @@ import retrofit2.Response;
 public class CompanyFragment  extends Fragment{
 
     @Bind(R.id.company_name)
-    TextView company_title;
+    TextView companyTitle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,11 @@ public class CompanyFragment  extends Fragment{
         response.enqueue(new Callback<List<Company>>() {
             @Override
             public void onResponse(Call<List<Company>> call, Response<List<Company>> response) {
-                Log.i("network call", response.toString());
+                List<Company> companyList = response.body();
+
+                //Just getting the only company there for now
+                Company defaultCompany = companyList.get(0);
+                companyTitle.setText(defaultCompany.getTitle());
             }
 
             @Override
