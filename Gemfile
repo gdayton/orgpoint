@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'roo'
 
+gem 'cancan'
+
 gem 'aws-sdk', '< 2.0'
   
 gem 'paperclip'
@@ -54,8 +56,6 @@ group :development, :test do
   gem 'byebug'
   
   gem 'rspec-rails'
-  
-  gem 'cancan'
   
   gem 'therubyracer'
 
