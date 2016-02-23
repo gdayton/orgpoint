@@ -33,6 +33,10 @@ gem 'devise'
 
 gem 'roo'
 
+gem 'aws-sdk', '< 2.0'
+  
+gem 'paperclip'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -48,10 +52,6 @@ group :development, :test do
   gem 'byebug'
   
   gem 'rspec-rails'
-  
-  gem 'aws-sdk', '< 2.0'
-  
-  gem 'paperclip'
   
   gem 'bower-rails'
   
