@@ -14,7 +14,7 @@
 		  <tbody>
 		    <% @posts.each do |post| %>
 		      <tr>
-		        <td><%= post.user %></td>
+		        <td><%= post.user.first_name %> <%= post.user.last_name %></td>
 		        <td><%= post.post_type %></td>
 		        <td><%= post.content %></td>
 		        <td><%= link_to 'Show', post %></td>
@@ -26,7 +26,5 @@
 		</table>
 		
 		<br>
-		
-		<%= link_to 'New Post', new_post_path %>
 	</div>
 </div>
