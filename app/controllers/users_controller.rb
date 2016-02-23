@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   #before_filter :authorize
+  #load_and_authorize_resource
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
   helper_method :convert_video_platform
@@ -30,6 +31,7 @@ class UsersController < ApplicationController
 	@user_blank.last_name = "aaaaa"
 	@user_blank.id = 0
 	@companies = Company.all
+	authorize! :update, @user
   end
 
   # POST /users
@@ -54,6 +56,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
 	@companies = Company.all
+	authorize! :update, @user
 	
     respond_to do |format|
       if @user.update(user_params)
@@ -112,6 +115,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :company_id, :image, :role, :manager_id, :mobile_phone, :work_phone, :start_date, :video_platform, :video_handle, :about_me, :resp)
+      params.require(:user).permit(:first_name, :last_name, :email, :company_id, :image, :role, :manager_id, :mobile_phone, :work_phone, :start_date, :video_platform, :video_handle, :about_me, :resp, :job_role)
     end
 end

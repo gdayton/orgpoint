@@ -41,7 +41,7 @@
 				<div class="large-6 column"> 
 					<div class="field">
 					    <%= f.label "Title" %>
-					    <%= f.text_field :role %>
+					    <%= f.text_field :job_role %>
 					</div>
 				</div>
 			</div>
@@ -103,6 +103,10 @@
 					<div class="field">
 						<%= f.label :start_date %><br>
 						<%= f.date_select :start_date, :start_year => 1940 %>
+					</div>
+					<div class="field">
+						<%= f.label :role %><br>
+						<%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
 					</div>
 					<div class="actions">
 						<%= f.submit "Save", :class => "button radius small" %>

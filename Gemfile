@@ -55,6 +55,8 @@ group :development, :test do
   
   gem 'rspec-rails'
   
+  gem 'cancan'
+  
   gem 'therubyracer'
 
   # Access an IRB console on exception pages or by using <%= console %> in views

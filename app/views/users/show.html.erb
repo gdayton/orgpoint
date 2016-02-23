@@ -13,7 +13,7 @@
 									<%= @user.manager.first_name %> <%= @user.manager.last_name %>
 								</span>
 								<span class="manager-nav-sec">
-									<%= @user.manager.role %>
+									<%= @user.manager.job_role %>
 								</span>
 							<% end %>
 						</td>
@@ -29,7 +29,7 @@
 						<% end %>
 					</td>
 					<td width="50%">
-						<center><span class="name-nav"><%= @user.first_name %> <%= @user.last_name %></span> <span class="name-nav-sec"><%= @user.role %></span></center>
+						<center><span class="name-nav"><%= @user.first_name %> <%= @user.last_name %></span> <span class="name-nav-sec"><%= @user.job_role %></span></center>
 					</td>
 					<td width="25%" valign="bottom">
 						<% if !@user.coworkers_disp[1].nil? %>
@@ -59,7 +59,9 @@
 					</td>
 			    </tr>
 		    </table>
-		    <%= link_to 'Edit', edit_user_path(@user), class: "button radius tiny" %>
+		    <% if can? :update, @user %>
+		    	<%= link_to 'Edit', edit_user_path(@user), class: "button radius tiny" %>
+		    <% end %>
 		</div>
 		<div class="large-10 column">	 
 			<div class="row">
@@ -100,8 +102,9 @@
 			<div>
 				<div class="row">
 					<div class="large-12 column">
-						<%= link_to "Upload", new_photo_path, :style => "float:right; margin-top:8px;", :class => "secondary button tiny radius" %>
-						<!--<a link="javascript:void();" ng-click="addPhoto.popupCancel(); expanded = false" style="float:right; margin-top:8px;" class="alert button tiny radius">Cancel</a>-->
+						<% if can? :update, @user %>
+							<%= link_to "Upload", new_photo_path, :style => "float:right; margin-top:8px;", :class => "secondary button tiny radius" %>
+						<% end %>
 						<h4>Photos</h4>
 					</div>
 				</div>
@@ -163,7 +166,7 @@
 								    	<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:25px;" />
 								    <% end %>
 									<span class="reports-name"><%= user.first_name %> <%= user.last_name %></span>
-									<span class="reports-pos"><%= user.role %></span>
+									<span class="reports-pos"><%= user.job_role %></span>
 								</div>
 							<% end %>
 						<% end %>

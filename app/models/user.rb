@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
+  ROLES = %w[superadmin admin employee banned].freeze
   
   validates :email, :presence => true, :uniqueness => true
   
