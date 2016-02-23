@@ -1,5 +1,3 @@
 == OrgPoint
 
 OrgPoint is a cool web app. 
-
-<tt>rake doc:app</tt>.
