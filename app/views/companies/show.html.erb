@@ -2,20 +2,14 @@
 <div class="row">
 	<div class="large-4 large-offset-4 column">
 		<center>
-			<img src="http://www.rcrwireless.com/wp-content/uploads/2014/05/apigee-logo-web-new-702x336.jpg" style="width:100px; margin-top:20px;" />
+			<!--<img src="http://www.rcrwireless.com/wp-content/uploads/2014/05/apigee-logo-web-new-702x336.jpg" style="width:100px; margin-top:20px;" />-->
+			<%= image_tag @company.image.url(:small), :style => "width:150px; margin-top:20px;" %>
 		</center>
 	</div>
 	<div class="large-4 column">
 		<input type="text" placeholder="Search for Coworkers" style="width:200px; margin-top:20px; float:right;" />
 	</div>
 </div>
-<!--<div class="row">
-	<div class="large-12 column">
-		<div style="height:60%; width:100%;">
-			<div id="infovis" style="height:100%; border:0px solid black;"></div>
-		</div>
-	</div>
-</div>-->
 <div style="height:60%; width:100%;">
 		<div id="infovis" style="height:100%; border:0px solid black;"></div>
 </div>
