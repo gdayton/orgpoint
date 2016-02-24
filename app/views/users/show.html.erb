@@ -64,7 +64,7 @@ var openPhotoSwipe = function(index_p) {
 						<% end %>
 					</td>
 					<td width="50%">
-						<center><span class="name-nav"><%= @user.first_name %> <%= @user.last_name %></span> <span class="name-nav-sec"><%= @user.job_role %></span></center>
+						<center></center>
 					</td>
 					<td width="25%" valign="bottom">
 						<% if !@user.coworkers_disp[1].nil? %>
@@ -95,48 +95,80 @@ var openPhotoSwipe = function(index_p) {
 		    <% end %>
 		</div>
 		<div class="large-10 column">	 
-			<div class="row">
-				<div class="large-4 column">
-					<b>Mobile</b> <%= @user.mobile_phone %><br />
-					<b><%= convert_video_platform(@user.video_platform) %></b> <%= @user.video_handle %>
+			<div style="background-color:#f9f9f9; padding:15px;">
+				<div class="row" style="margin-bottom:10px;">
+					<div class="large-10 column">
+						<span class="name-nav"><%= @user.first_name %> <%= @user.last_name %></span> <span class="name-nav-sec"><%= @user.job_role %></span>
+					</div>
+					<div class="large-2 column">
+					</div>
 				</div>
-				<div class="large-4 column">
-					<b>Work</b> <%= @user.work_phone %><br />
-					<b>Email</b> <%= @user.email %>
-				</div>
-				<div class="large-4 column">
-					<b>Location</b> San Diego, CA<br />
-					<b class="era">Employee since 
-					<% if !@user.start_date.nil? %>
-						<%= @user.start_date.year %>
-					<% else %>
-						present
-					<% end %>
-					</b>
+				<div class="row">
+					<div class="large-4 column">
+						<b>Mobile</b> <%= @user.mobile_phone %><br />
+						<b><%= convert_video_platform(@user.video_platform) %></b> <%= @user.video_handle %>
+					</div>
+					<div class="large-4 column">
+						<b>Work</b> <%= @user.work_phone %><br />
+						<b>Email</b> <%= @user.email %>
+					</div>
+					<div class="large-4 column">
+						<b>Location</b> San Diego, CA<br />
+						<b class="era">Employee since 
+						<% if !@user.start_date.nil? %>
+							<%= @user.start_date.year %>
+						<% else %>
+							present
+						<% end %>
+						</b>
+					</div>
 				</div>
 			</div>
 			<br />
+			<!--<div class="row">
+				<div class="large-12 column">
+					<div class="show-photos">
+						<% if @photos.count > 0 %>
+							<% @photos.each_with_index do |photo, index| %>
+								<div class="large-2 column">
+									<a onclick="openPhotoSwipe(<%= index %>);">
+										<%= image_tag(photo.image.url(:small)) %>
+									</a>
+								</div>
+							<% end %>
+							<% if (@photos.each.count > 0) && (@photos.each.count < 6) %>
+								<%= content_tag :div, "", :class => "large-#{ ((6 - @photos.each.count) * 2) } column" %>
+							<% end %>
+						<% else %>
+							<div class="large-12 column">
+								<p>No photos</p>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>-->
 			<div class="row">  
 				<div class="large-6 column"> 
-					<h4>About Me</h4>
-					<div class="panel">
+					<center><h5>About Me</h5></center>
+					<div style="padding:15px; background-color:#f9f9f9;">
 						<%= @user.about_me %>
 					</div>
 				</div>
 				<div class="large-6 column"> 
-					<h4>Responsibilities</h4>
-					<div class="panel">
+					<center><h5>Responsibilities</h5></center>
+					<div style="padding:15px; background-color:#f9f9f9;">
 						<%= @user.resp %>
 					</div>
 				</div>
 			</div>
+			<br />
 			<div>
 				<div class="row">
 					<div class="large-12 column">
 						<% if can? :update, @user %>
 							<%= link_to "Upload", new_photo_path, :style => "float:right; margin-top:8px;", :class => "secondary button tiny radius" %>
 						<% end %>
-						<h4>Photos</h4>
+						<h5>Photos</h5>
 					</div>
 				</div>
 				<div class="row image-profile">
