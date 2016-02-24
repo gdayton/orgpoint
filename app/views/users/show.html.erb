@@ -79,11 +79,7 @@ var openPhotoSwipe = function(index_p) {
 	</div>
 	<div class="row">
 		<div class="large-2 column">
-			<% if @user.image.url(:large) != "/images/large/missing.png" %>
-		    	<%= image_tag(@user.image.url(:large), :style => "width:100%;") %>
-		    <% else %>
-		    	<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:100%;" />
-		    <% end %>
+		    <%= image_tag(@user.image.url(:large), :style => "width:100%;") %>
 		    <table class="controlling-count" border="0" cellspacing="0" cellpadding="0" width="100%">
 			    <tr>
 				    <td style="padding:0px;">
