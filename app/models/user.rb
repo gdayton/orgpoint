@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 	            },
                 :default_url => "/images/:style/missing.png",
                 :s3_host_name => "s3-us-west-1.amazonaws.com",
+                :s3_protocol => :https,
                 :storage => :s3,
                 :bucket => "orgpoint",
                 :s3_credentials => { 

@@ -9,6 +9,7 @@ class Photo < ActiveRecord::Base
                 :default_url => "/images/:style/missing.png",
                 :s3_host_name => "s3-us-west-1.amazonaws.com",
                 :storage => :s3,
+                :s3_protocol => :https,
                 :bucket => "orgpoint",
                 :s3_credentials => { 
 	                :access_key_id => "AKIAJXFJLRPQ3ASZSJIQ", 
