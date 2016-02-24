@@ -34,8 +34,8 @@ class Ability
     if user.role == "superadmin"
 	    can :manage, :all
 	else
-		can :read, :all
 		can :update, User, :id => user.id
+		can :read, Company, :id => user.company_id
 	end
   end
 end
