@@ -6,30 +6,31 @@
 				<div><%= render 'form'%></div>
 			</div>	
 		</div>	
-		<table>
-		  <thead>
-		    <tr>
-		      <th>User</th>
-		      <th>Post type</th>
-		      <th>Content</th>
-		      <th colspan="3"></th>
-		    </tr>
-		  </thead>
-		
-		  <tbody>
-		    <% @posts.each do |post| %>
-		      <tr>
-		        <td><%= post.user.first_name %> <%= post.user.last_name %></td>
-		        <td><%= post.post_type %></td>
-		        <td><%= post.content %></td>
-		        <td><%= link_to 'Show', post %></td>
-		        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-		        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		      </tr>
-		    <% end %>
-		  </tbody>
-		</table>
-		
+		<% @posts.each do |post| %>
+				<div id="timeline" class="row info container-shading">
+						<div id="timeline-user"class="medium-2 columns">
+							<div>
+								<% if post.user.image.url(:small) != "/images/small/missing.png" %>
+									<%= image_tag(post.user.image.url(:small), :style => "width:20px;")%>
+								<% else %>
+									<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:20px;" />
+								<% end %>
+								<div><%= post.user.first_name %> <%= post.user.last_name %></div>
+							</div>
+						</div>
+						<div id="timeline-post"class="medium-8 columns">
+						<div>
+					        <div><%= post.post_type %></div>				        
+					        <div class="post-content"><%= post.content %></div>
+					    </div>
+						</div>
+						<div id="timeline-options"class="medium-2 columns">
+							<div><%= link_to 'View', post %></div>
+				        	<div><%= link_to 'Edit', edit_post_path(post) %></div>
+				        	<div><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div>	
+				        </div>
+				</div>
+		<% end %>
 		<br>
 	</div>
 </div>

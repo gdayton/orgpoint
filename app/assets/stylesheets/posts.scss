@@ -13,3 +13,24 @@
 #hide {
   display: None;
 }
+
+#timeline {
+	padding: 10px 20px;
+	margin: 10px 0;
+}
+
+#timeline-user {
+	background: #FFE95C;
+}
+
+#timeline-post {
+	background: #5CFF98;
+}
+
+#timeline-options {
+	background: #FFE95C;
+}
+
+.post-content-hidden span {
+	display: none;
+}
