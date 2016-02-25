@@ -12,6 +12,7 @@
 //
 //= require angular/angular
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks

@@ -19,6 +19,8 @@ gem 'pg', '~> 0.18.4'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+# Allows usage of jquery and Turbolinks without conflicts between two. Read more: https://github.com/kossnocorp/jquery.turbolinks
+gem 'jquery-turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
