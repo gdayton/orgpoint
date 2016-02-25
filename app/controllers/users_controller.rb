@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   #before_filter :authorize
+  #load_and_authorize_resource
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
   helper_method :convert_video_platform
@@ -7,7 +8,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.where(company_id: current_user.company.id)
   end
 
   # GET /users/1
@@ -30,6 +31,7 @@ class UsersController < ApplicationController
 	@user_blank.last_name = "aaaaa"
 	@user_blank.id = 0
 	@companies = Company.all
+	authorize! :update, @user
   end
 
   # POST /users
@@ -54,6 +56,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
 	@companies = Company.all
+	authorize! :update, @user
 	
     respond_to do |format|
       if @user.update(user_params)
@@ -92,15 +95,26 @@ class UsersController < ApplicationController
 		  				   "7" => "Facetime"}
 	  humanized_numbers[num.to_s]
   end
+  
+  def nouser
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      #@user = User.find(params[:id])
+      begin
+	  	@user = User.find(params[:id])
+	  rescue ActiveRecord::RecordNotFound => e
+	  	respond_to do |format|
+	  		format.html { redirect_to root_url, notice: "User doesn't exist." }
+	  		format.json { render json: @user.errors, status: :unprocessable_entity }
+	    end
+	  end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :company_id, :image, :role, :manager_id, :mobile_phone, :work_phone, :start_date, :video_platform, :video_handle, :about_me, :resp)
+      params.require(:user).permit(:first_name, :last_name, :email, :company_id, :image, :role, :manager_id, :mobile_phone, :work_phone, :start_date, :video_platform, :video_handle, :about_me, :resp, :job_role)
     end
 end

@@ -8,9 +8,10 @@
 			  <th>Pic</th>
 		      <th>First name</th>
 		      <th>Last name</th>
-		      <th>Role</th>
+		      <th>Job Role</th>
 		      <th>Email</th>
 		      <th>Manager</th>
+		      <th>Role</th>
 		      <th colspan="3"></th>
 		    </tr>
 		  </thead>
@@ -19,11 +20,7 @@
 		    <% @users.each do |user| %>
 		      <tr>
 			    <td>
-				    <% if user.image.url(:small) != "/images/small/missing.png" %>
-				    	<%= image_tag(user.image.url(:small), :style => "width:20px;") %>
-				    <% else %>
-				    	<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:20px;" />
-				    <% end %>
+				    <%= image_tag(user.image.url(:small), :style => "width:20px;") %>
 				</td>
 		        <td><%= link_to user.first_name, user_path(user.id) %></td>
 		        <td><%= user.last_name %></td>
@@ -36,6 +33,17 @@
 			        	No Manager
 			        <% end %>
 			    </td>
+			    <td>
+				    <% if user.role == "superadmin" %>
+				    	<span class="radius alert label">SUPERADMIN</span>
+				    <% end %>
+				    <% if user.role == "admin" %>
+				    	<span class="radius success label">ADMIN</span>
+				    <% end %>
+				    <% if user.role == "employee" %>
+				    	<span class="radius secondary label">EMPLOYEE</span>
+				    <% end %>
+				</td>
 		        <td>
 			        <%= link_to user do %>
 			        	<i class="fi-page"></i>

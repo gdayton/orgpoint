@@ -10,12 +10,69 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="row">
+	  <div class="large-3 column">
+		  <ul class="side-nav">
+			<li><a href="#" style="font-size:16px;">General</a></li>
+			<li><a href="#" style="font-size:16px;">Manage Users</a></li>
+			<li><a href="#" style="font-size:16px;">Manage Departments</a></li>
+			<li><a href="#" style="font-size:16px;">Manage Locations</a></li>
+			<li><a href="#" style="font-size:16px;">Billing</a></li>
+		  </ul>
+		  <!--<div class="left-nav-ctlr">
+			  <a href="#">
+				  <div class="item">General</div>
+			  </a>
+			  <a href="#">
+				  <div class="item">Manage Users</div>
+			  </a>
+			  <a href="#">
+				  <div class="item">Manage Departments</div>
+			  </a>
+			  <a href="#">
+				  <div class="item">Manage Locations</div>
+              </a>
+			  <a href="#">
+				  <div class="item">Billing</div>
+			  </a>
+		  </div>-->
+		  <!--<a class="button tiny radius" width="100%">General</a><br />
+		  <a class="button tiny radius" width="100%">Manage Users</a><br />
+		  <a class="button tiny radius" width="100%">Manage Departments</a><br />
+		  <a class="button tiny radius" width="100%">Manage Locations</a><br />
+		  <a class="button tiny radius" width="100%">Billing</a>-->
+	  </div>
+	  <div class="large-9 column">
+		  <div class="row">		  
+			  <div class="large-6 column">
+				  <div class="field">
+					 <%= f.label :title %>
+				     <%= f.text_field :title %>
+				  </div>
+			  </div>
+		  </div>
+		  
+		  <div class="row">		  
+			  <div class="large-6 column">
+				  <div class="field">
+				     <table border="0" width="100%">
+					     <tr>
+						     <td><%= image_tag(@company.image.url(:small)) %></td>
+						     <td><br /><%= f.file_field :image %></td>
+					     </tr>
+				     </table>
+				  </div>
+			  </div>
+		  </div>
+		  
+		  <div class="row">		  
+			  <div class="large-12 column">
+				  <div class="actions">
+				    <%= f.submit "Save", :class => "button radius small" %>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
   </div>
 <% end %>

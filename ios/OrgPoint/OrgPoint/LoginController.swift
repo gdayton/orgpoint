@@ -8,16 +8,34 @@
 
 import UIKit
 
-class LoginController: UIViewController {
+class LoginController: UIViewController, UITextFieldDelegate{
 
+    @IBOutlet weak var emailEdit: UITextField!
+    @IBOutlet weak var passwordEdit: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        emailEdit.delegate = self
+        passwordEdit.delegate = self
     }
 
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
+    }
 
     
-
+    @IBAction func loginPressed(sender: AnyObject){
+        performSegueWithIdentifier(SEG_LOGIN_TO_HOME, sender: nil)
+//        guard let emailText = emailEdit.text, let passwordText = passwordEdit.text else {
+//            print("No email or password give")
+//            return
+//        }
+//        if (emailText == "admin" && passwordText == "admin"){
+        
+//        }
+    }
 
 }

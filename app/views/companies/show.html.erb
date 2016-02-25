@@ -1,11 +1,23 @@
+<% content_for :title, "OrgPoint | #{@company.title}" %>
 <div class="row">
+	<div class="large-4 large-offset-4 column">
+		<center>
+			<%= image_tag @company.image.url(:small), :style => "width:150px; margin-top:20px;" %>
+		</center>
+	</div>
+	<div class="large-4 column">
+		<input type="text" placeholder="Search for Coworkers" style="width:200px; margin-top:20px; float:right;" />
+	</div>
+</div>
+<div style="height:60%; width:100%;">
+		<div id="infovis" style="height:100%; border:0px solid black;"></div>
+</div>
+<!--<div class="row">
 	<div class="large-12 column">
-		<center><h1><%= @company.title %></h1></center>
-		<hr />
 		<% @company.users.each do |user| %>
 			<%= link_to user_path(user.id) do %>
 				<h3><%= user.first_name %> <%= user.last_name %></h3>
 			<% end %>
 		<% end %>
 	</div>
-</div>
+</div>-->

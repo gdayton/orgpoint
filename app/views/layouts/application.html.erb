@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "OrgPoint | Workplace Social Directory" %></title>
+    
+    <%= favicon_link_tag 'orgpoint_main.ico' %>
 
     <%= stylesheet_link_tag    "application" %>
     <%= stylesheet_link_tag    "main" %>
@@ -14,7 +16,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body onload="init()">
 	  
   	<div class="contain-to-grid sticky">
 	  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
@@ -43,23 +45,29 @@
 					<li>
 						<a style="color:#1fc83b; font-weight:bold;" href="/stats"><i class="fi-graph-pie"></i> Stats</a>
 					</li>
-					<li>
+					<!--<li>
 						<input type="text" name="search" id="search" placeholder="Search for coworkers" />
-					</li>
+					</li>-->
 				<% end %>
 			    <% if current_user %>
 				  <li class="has-dropdown">
 				        <a href="#">
 				        <%= image_tag(current_user.image.url(:small), :style => "width:20px; margin-right:5px; margin-bottom:3px; border-radius:5px;") %>
-				        <b><%= current_user.first_name %> <%= current_user.last_name %></b>
-				        <span style="color:orange;"><%= current_user.company.title %></span>
-				        <% if current_user.admin %> 
+				        <%= current_user.first_name %> <%= current_user.last_name %>
+				        <!--<span style="color:orange;"><%= current_user.company.title %></span>-->
+				        <% if current_user.role == "admin" %> 
 					        <span class="radius success label" style="margin-left:3px; margin-bottom:2px;">ADMIN</span><br>
+					    <% end %>
+					    <% if current_user.role == "superadmin" %> 
+					        <span class="radius alert label" style="margin-left:3px; margin-bottom:2px;">SA</span><br>
 					    <% end %>
 				        </a>
 				        <ul class="dropdown">
 					      <li><%= link_to('My Profile', user_path(current_user.id)) %></li>
 					      <li><%= link_to('Settings', edit_user_path(current_user.id)) %></li>
+					      <% if current_user.role == "admin" %> 
+					        <li><%= link_to('Company Settings', edit_company_path(current_user.company_id)) %></li>
+					      <% end %>
 					      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 				        </ul>
 				  </li>
