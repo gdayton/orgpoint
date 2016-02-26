@@ -1,10 +1,13 @@
 <script type="text/javascript">
-      google.charts.load('current', {packages: ['corechart', 'bar']});
+      google.charts.load('current', {packages: ['corechart', 'bar', 'treemap', 'geochart', 'table']});
       google.charts.setOnLoadCallback(drawAll);
       
       function drawAll() {
 	      drawA();
 	      drawB();
+	      drawC();
+	      drawD();
+	      drawE();
 	  }
 	  
 	  function drawA(){
@@ -43,6 +46,105 @@
 	    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
 	    chart.draw(data, options);
 	  }
+
+	  function drawC(){
+	  	var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2013',  1000,      400],
+          ['2014',  1170,      460],
+          ['2015',  660,       1120],
+          ['2016',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('area_c'));
+        chart.draw(data, options);
+	  }
+
+	  function drawD(){
+	  	var data = google.visualization.arrayToDataTable([
+          ['Location', 'Parent', 'Market trade volume (size)', 'Market increase/decrease (color)'],
+          ['Global',    null,                 0,                               0],
+          ['America',   'Global',             0,                               0],
+          ['Europe',    'Global',             0,                               0],
+          ['Asia',      'Global',             0,                               0],
+          ['Australia', 'Global',             0,                               0],
+          ['Africa',    'Global',             0,                               0],
+          ['Brazil',    'America',            11,                              10],
+          ['USA',       'America',            52,                              31],
+          ['Mexico',    'America',            24,                              12],
+          ['Canada',    'America',            16,                              -23],
+          ['France',    'Europe',             42,                              -11],
+          ['Germany',   'Europe',             31,                              -2],
+          ['Sweden',    'Europe',             22,                              -13],
+          ['Italy',     'Europe',             17,                              4],
+          ['UK',        'Europe',             21,                              -5],
+          ['China',     'Asia',               36,                              4],
+          ['Japan',     'Asia',               20,                              -12],
+          ['India',     'Asia',               40,                              63],
+          ['Laos',      'Asia',               4,                               34],
+          ['Mongolia',  'Asia',               1,                               -5],
+          ['Israel',    'Asia',               12,                              24],
+          ['Iran',      'Asia',               18,                              13],
+          ['Pakistan',  'Asia',               11,                              -52],
+          ['Egypt',     'Africa',             21,                              0],
+          ['S. Africa', 'Africa',             30,                              43],
+          ['Sudan',     'Africa',             12,                              2],
+          ['Congo',     'Africa',             10,                              12],
+          ['Zaire',     'Africa',             8,                               10]
+        ]);
+
+        tree = new google.visualization.TreeMap(document.getElementById('tree_map'));
+
+        tree.draw(data, {
+          minColor: '#f00',
+          midColor: '#ddd',
+          maxColor: '#0d0',
+          headerHeight: 15,
+          fontColor: 'black',
+          showScale: true
+        });
+	  }
+
+	  function drawE(){
+	  	var data = google.visualization.arrayToDataTable([
+          ['Country', 'Popularity'],
+          ['Germany', 200],
+          ['United States', 300],
+          ['Brazil', 400],
+          ['Canada', 500],
+          ['France', 600],
+          ['RU', 700]
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+	  }
+
+	  function drawF(){
+	  	var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('number', 'Salary');
+        data.addColumn('boolean', 'Full Time Employee');
+        data.addRows([
+          ['Mike',  {v: 10000, f: '$10,000'}, true],
+          ['Jim',   {v:8000,   f: '$8,000'},  false],
+          ['Alice', {v: 12500, f: '$12,500'}, true],
+          ['Bob',   {v: 7000,  f: '$7,000'},  true]
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+	  }
     </script>
 
 <script type="text/javascript">
@@ -64,5 +166,31 @@
 	</div>
 	<div class="large-6 column">
 		<div id="chart_div" style="width: 500px;"></div>
+	</div>
+</div>
+<div class="row">
+	<br />
+	<div class="large-6 column">
+		<div id="area_c" style="width:500px;"></div>
+	</div>
+	<div class="large-6 column">
+		<div id="tree_map" style="width:500px;"></div>
+	</div>
+</div>
+<div class="row">
+	<br />
+	<div class="large-12 column">
+		<div id="regions_div" style="width:750px;"></div>
+	</div>
+</div>
+<div class="row">
+	<br />
+	<div class="large-6 column">
+		<div id="table_div" style="width:500px;"></div>
+	</div>
+	<div class="large-6 column">
+		<h5># of photos</h5>
+		<h5># of posts</h5>
+		<h5># of comments</h5>
 	</div>
 </div>
