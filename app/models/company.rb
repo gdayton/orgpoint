@@ -20,4 +20,5 @@ class Company < ActiveRecord::Base
 	has_many :departments
 	has_many :users
 	has_many :statements
+	has_many :posts
 end

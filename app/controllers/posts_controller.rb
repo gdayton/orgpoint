@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = @company.posts
+    
     @post = Post.new
     @users = User.all
   end
@@ -12,27 +13,30 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+	@post = @company.posts.find(params[:id])
   end
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = @company.posts.new
     @users = User.all
   end
 
   # GET /posts/1/edit
   def edit
+	@post = @company.posts.find(params[:id])
     @users = User.all
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = @company.posts.create(post_params)
     @post.user_id = current_user.id
+    
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to company_posts_path(@company), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -45,8 +49,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+      if @company.posts.find(params[:id]).update(post_params)
+        format.html { redirect_to company_posts_path(@company), notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -58,17 +62,17 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post.destroy
+    @company.posts.find(params[:id]).destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to company_posts_path(@company), notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
+    def set_company
+      @company = Company.find(params[:company_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

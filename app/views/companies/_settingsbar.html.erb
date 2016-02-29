@@ -3,10 +3,11 @@
 	padding:5px 0;
 }	
 .side-nav-wrapper{
-	background-color:#f9f9f9; padding:0px; margin-top:20px;
+	background-color:#f9f9f9; padding-top:10px; margin-top:20px;
 }
 </style>
 <div class="side-nav-wrapper">
+	<center><%= image_tag(@company.image.url(:small)) %></center>
 	<ul class="side-nav">
 		<li>
 			<%= link_to edit_company_path(@company), :style => "font-size:16px; color:black;" do %>
@@ -15,18 +16,23 @@
 		</li>
 		<li>
 			<%= link_to company_users_path(@company), :style => "font-size:16px; color:black;" do %>
-				<i class="fi-torsos"></i> Manage Employees
+				<i class="fi-torsos"></i> Employees
 			<% end %>
 		</li>
 		<li>
 			<%= link_to company_departments_path(@company), :style => "font-size:16px; color:black;" do %>
-				<i class="fi-address-book"></i> Manage Departments
+				<i class="fi-address-book"></i> Departments
 			<% end %>
 		</li>
 		<li>
 		 	<%= link_to company_locations_path(@company), :style => "font-size:16px; color:black;" do %>
-		 		<i class="fi-marker"></i> Manage Locations
+		 		<i class="fi-marker"></i> Locations
 		 	<% end %>
+		</li>
+		<li>
+			<%= link_to company_statements_path(@company), :style => "font-size:16px; color:black;" do %>
+				<i class="fi-graph-pie"></i> Statistics
+			<% end %>
 		</li>
 		<li>
 			<%= link_to company_statements_path(@company), :style => "font-size:16px; color:black;" do %>

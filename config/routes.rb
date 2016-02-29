@@ -2,9 +2,6 @@ Rails.application.routes.draw do
 
   resources :photos
   
-  resources :posts do
-	 resources :comments
-  end
   devise_for :users
   #resources :users do
   #	  member do
@@ -19,14 +16,17 @@ Rails.application.routes.draw do
 	 resources :departments
 	 resources :locations 
 	 resources :users do
-		  member do
-			  get :confirm_email
-		  end
-		  collection do
-			  post :import
-		  end
+		member do
+			get :confirm_email
+		end
+		collection do
+			post :import
+		end
 	 end
 	 resources :statements
+	 resources :posts do
+		resources :comments
+	 end
   end
   
   root 'layouts#index'

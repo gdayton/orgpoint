@@ -40,7 +40,7 @@
 		    <ul class="right">
 		    	<% if current_user %>
 				    <li>
-						<a style="color:#0C7BEE; font-weight:bold;" href="/posts"><i class="fi-list"></i> Recent</a>
+						<a style="color:#0C7BEE; font-weight:bold;" href="/companies/1/posts"><i class="fi-list"></i> Recent</a>
 						<!-- #2976eb -->
 					</li>
 					<li>
@@ -66,8 +66,8 @@
 					    <% end %>
 				        </a>
 				        <ul class="dropdown">
-					      <li><%= link_to('My Profile', company_user_path(@company,current_user.id)) %></li>
-					      <li><%= link_to('Settings', edit_company_user_path(@company,current_user.id)) %></li>
+					      <li><%= link_to "My Profile", company_user_path(current_user.company, current_user) %></li>
+					      <li><%= link_to "Settings", edit_company_user_path(current_user.company, current_user) %></li>
 					      <% if current_user.role == "admin" %> 
 					        <li><%= link_to('Company Settings', edit_company_path(current_user.company)) %></li>
 					      <% end %>
