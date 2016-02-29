@@ -28,7 +28,7 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
-    user ||= User.new
+    user ||= Company.user.new
     
     # there is to be only ONE superadmin
     if user.role == "superadmin"

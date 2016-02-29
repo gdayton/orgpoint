@@ -1,0 +1,20 @@
+<%= form_for([@company, @statement]) do |f| %>
+  <% if @statement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@statement.errors.count, "error") %> prohibited this statement from being saved:</h2>
+
+      <ul>
+      <% @statement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :amount, :placeholder => "Amount" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save", :class => "button radius tiny" %><%= link_to "Cancel", company_statements_path(@company), :style => "padding-left:10px;" %>
+  </div>
+<% end %>

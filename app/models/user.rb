@@ -35,18 +35,17 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :photos
   
-  def self.import(file,company)
+  def self.import(file, company)
 	ss = open_spreadsheet(file)
 	header = ss.row(1)
 	(2..ss.last_row).each do |i|
 		row = Hash[[header, ss.row(i)].transpose]
-		user = new
+		user = company.users.new
 		user.first_name = row["first_name"]
 		user.last_name = row["last_name"]
 		user.email = row["email"]
 		user.password = row["password"]
 		user.password_confirmation = row["password_confirmation"]
-		user.company = company
 		#user.attributes = row.to_hash.slice(["id", "first_name", "last_name", "email", "password", "password_confirmation"])
 		user.save!
 	end

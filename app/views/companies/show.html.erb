@@ -12,10 +12,11 @@
 <div style="height:60%; width:100%;">
 		<div id="infovis" style="height:100%; border:0px solid black;"></div>
 </div>
+
 <!--<div class="row">
 	<div class="large-12 column">
 		<% @company.users.each do |user| %>
-			<%= link_to user_path(user.id) do %>
+			<%= link_to company_user_path(@company, user.id) do %>
 				<h3><%= user.first_name %> <%= user.last_name %></h3>
 			<% end %>
 		<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223143320) do
+ActiveRecord::Schema.define(version: 20160229055237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,15 @@ ActiveRecord::Schema.define(version: 20160223143320) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
+  create_table "statements", force: :cascade do |t|
+    t.integer  "company_id"
+    t.decimal  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "statements", ["company_id"], name: "index_statements_on_company_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -122,5 +131,6 @@ ActiveRecord::Schema.define(version: 20160223143320) do
   add_foreign_key "locations", "companies"
   add_foreign_key "photos", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "statements", "companies"
   add_foreign_key "users", "companies"
 end
