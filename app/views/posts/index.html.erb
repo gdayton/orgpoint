@@ -1,10 +1,35 @@
+<script type="text/javascript">
+function sendPost(){
+	var postd = { 
+		"post_type": $(".post_type").val(), 
+		"content": $(".content").val(), 
+		"user_id": 16, 
+		"company_id": 1 
+	};
+	
+	$.ajax({
+	    type: "POST",
+	    url: "/companies/1/posts",
+	    data: JSON.stringify({ post: postd }),
+	    contentType: "application/json; charset=utf-8",
+	    dataType: "json",
+	    success: function(data){alert(data);},
+	    failure: function(errMsg) {
+	        alert(errMsg);
+	    }
+	});
+}	
+</script>
 <div class="row">
 	<div class="large-12 column">
 		<br />
 		<div>
 			<a id="expand" class="button radius tiny">New Post</a>
 			<div id="hide">
-				<div><%= render 'form'%></div>
+				<!--<div><%= render 'form'%></div>-->
+				<input type="text" class="post_type" placeholder="Type"/>
+				<input type="text" class="content" placeholder="Content"/>
+				<button onclick="sendPost();">Post</button>
 			</div>	
 		</div>	
 		<% @posts.each do |post| %>

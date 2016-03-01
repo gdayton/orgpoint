@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_company, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /posts
   # GET /posts.json
@@ -37,7 +38,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to company_posts_path(@company), notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        #format.json { render :show, status: :created, location: @post }
+        format.json { render "POSTED!!!" }
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
