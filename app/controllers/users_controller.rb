@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   load_and_authorize_resource :user, :through => :company
   
   helper_method :convert_video_platform
+  
+  skip_before_action :verify_authenticity_token
 
   # GET /users
   # GET /users.json

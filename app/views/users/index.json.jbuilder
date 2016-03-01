@@ -18,5 +18,5 @@ json.array!(@users) do |user|
 				:about_me,
 				:resp,
 				:job_role
-  json.url user_url(user, format: :json)
+  #json.url user_url(user, format: :json)
 end
