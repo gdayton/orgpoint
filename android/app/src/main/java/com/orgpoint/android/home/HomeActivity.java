@@ -69,10 +69,12 @@ public class HomeActivity extends AppCompatActivity {
         ProfileFragment profileFragment = ProfileFragment.getInstance();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, profileFragment).commit();
         break;
-
       case R.id.company_item:
         CompanyFragment companyFragment = CompanyFragment.getInstance();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, companyFragment).commit();
+        break;
+      case R.id.timeline_item:
+
         break;
 
     }
