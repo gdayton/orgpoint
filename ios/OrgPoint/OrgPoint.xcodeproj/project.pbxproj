@@ -13,6 +13,9 @@
 		829103C51C7B19E400580327 /* OutlinedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829103C31C7B19E400580327 /* OutlinedButton.swift */; };
 		829103C61C7B19E400580327 /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829103C41C7B19E400580327 /* UnderlineTextField.swift */; };
 		829103C91C7B1A1300580327 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829103C81C7B1A1300580327 /* Extensions.swift */; };
+		829F72611C85643B009EA6B4 /* TimelineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F72601C85643B009EA6B4 /* TimelineController.swift */; };
+		829F72631C85654F009EA6B4 /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F72621C85654F009EA6B4 /* TimelineCell.swift */; };
+		829F72651C85656A009EA6B4 /* TimelinePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F72641C85656A009EA6B4 /* TimelinePost.swift */; };
 		82B86B431C64194300840B5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B86B421C64194300840B5E /* AppDelegate.swift */; };
 		82B86B451C64194300840B5E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B86B441C64194300840B5E /* HomeController.swift */; };
 		82B86B481C64194300840B5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B86B461C64194300840B5E /* Main.storyboard */; };
@@ -30,6 +33,9 @@
 		829103C31C7B19E400580327 /* OutlinedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlinedButton.swift; sourceTree = "<group>"; };
 		829103C41C7B19E400580327 /* UnderlineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
 		829103C81C7B1A1300580327 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		829F72601C85643B009EA6B4 /* TimelineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
+		829F72621C85654F009EA6B4 /* TimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineCell.swift; sourceTree = "<group>"; };
+		829F72641C85656A009EA6B4 /* TimelinePost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelinePost.swift; sourceTree = "<group>"; };
 		82B86B3F1C64194300840B5E /* OrgPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrgPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B86B421C64194300840B5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82B86B441C64194300840B5E /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -65,6 +71,7 @@
 		8209004A1C6D643400B65CCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				829F72641C85656A009EA6B4 /* TimelinePost.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -77,6 +84,7 @@
 				829103C31C7B19E400580327 /* OutlinedButton.swift */,
 				829103C41C7B19E400580327 /* UnderlineTextField.swift */,
 				82DB2B0D1C769DAE00EF343A /* CircleImage.swift */,
+				829F72621C85654F009EA6B4 /* TimelineCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -87,6 +95,7 @@
 				82B86B441C64194300840B5E /* HomeController.swift */,
 				8237D0C21C76A8B10085311D /* ProfileController.swift */,
 				829103C11C7B198200580327 /* LoginController.swift */,
+				829F72601C85643B009EA6B4 /* TimelineController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -266,8 +275,11 @@
 			files = (
 				82B86B451C64194300840B5E /* HomeController.swift in Sources */,
 				82B86B431C64194300840B5E /* AppDelegate.swift in Sources */,
+				829F72651C85656A009EA6B4 /* TimelinePost.swift in Sources */,
 				82DB2B0E1C769DAE00EF343A /* CircleImage.swift in Sources */,
 				829103C91C7B1A1300580327 /* Extensions.swift in Sources */,
+				829F72611C85643B009EA6B4 /* TimelineController.swift in Sources */,
+				829F72631C85654F009EA6B4 /* TimelineCell.swift in Sources */,
 				8237D0C31C76A8B10085311D /* ProfileController.swift in Sources */,
 				829103C21C7B198200580327 /* LoginController.swift in Sources */,
 				829103C51C7B19E400580327 /* OutlinedButton.swift in Sources */,

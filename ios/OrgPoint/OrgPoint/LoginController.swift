@@ -29,13 +29,6 @@ class LoginController: UIViewController, UITextFieldDelegate{
     
     @IBAction func loginPressed(sender: AnyObject){
         performSegueWithIdentifier(SEG_LOGIN_TO_HOME, sender: nil)
-//        guard let emailText = emailEdit.text, let passwordText = passwordEdit.text else {
-//            print("No email or password give")
-//            return
-//        }
-//        if (emailText == "admin" && passwordText == "admin"){
-        
-//        }
     }
 
 }
