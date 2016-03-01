@@ -19,8 +19,12 @@ gem 'pg', '~> 0.18.4'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+# Allows usage of jquery and Turbolinks without conflicts between two. Read more: https://github.com/kossnocorp/jquery.turbolinks
+gem 'jquery-turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -31,12 +35,20 @@ gem 'rails_12factor', group: :production
 
 gem 'devise'
 
-gem 'paperclip'
-
 gem 'roo'
+
+gem 'cancan'
+
+gem 'rack-ssl-enforcer'
+
+gem 'aws-sdk', '< 2.0'
+  
+gem 'paperclip'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+gem 'bower-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -50,8 +62,6 @@ group :development, :test do
   gem 'byebug'
   
   gem 'rspec-rails'
-  
-  gem 'bower-rails'
   
   gem 'therubyracer'
 

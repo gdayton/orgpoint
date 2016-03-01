@@ -1,26 +1,39 @@
 Rails.application.routes.draw do
 
   resources :photos
-  resources :comments
-  resources :posts
+  
   devise_for :users
-  resources :users do
-	  member do
-		  get :confirm_email
-	  end
-	  collection do
-		  post :import
-	  end
+  #resources :users do
+  #	  member do
+  #		  get :confirm_email
+  #	  end
+  #	  collection do
+  #		  post :import
+  #	  end
+  #end
+  
+  resources :companies do
+	 resources :departments
+	 resources :locations 
+	 resources :users do
+		member do
+			get :confirm_email
+		end
+		collection do
+			post :import
+		end
+	 end
+	 resources :statements
+	 resources :posts do
+		resources :comments
+	 end
   end
-  resources :locations
-  resources :departments
-  resources :companies
   
   root 'layouts#index'
   
   get '/onboard' => 'layouts#onboard'
   get '/faq' => 'layouts#faq'
-  get '/stats' => 'stats#index' 
+  get '/stats/:id' => 'stats#index' 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

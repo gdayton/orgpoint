@@ -1,3 +1,10 @@
 == OrgPoint
 
-OrgPoint is a cool web app. 
+OrgPoint, the Workplace Social Directory
+
+Jesus Alcaraz :: Ruby on Rails
+Jose Calles :: Android & iOS
+Shivam Dave :: Ruby on Rails
+Glenn Dayton :: Ruby on Rails (Product Owner)
+Raul Lopez Luna :: Android
+Joseph Ou :: Android
