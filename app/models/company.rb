@@ -1,7 +1,7 @@
 class Company < ActiveRecord::Base
 	has_attached_file :image,
                 :styles => { 
-	                small: '150x150'
+	                small: '250x250'
 	            },
                 :default_url => "/images/:style/missing.png",
                 :s3_host_name => "s3-us-west-1.amazonaws.com",

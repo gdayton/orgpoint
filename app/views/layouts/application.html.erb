@@ -11,6 +11,7 @@
     <%= stylesheet_link_tag    "application" %>
     <%= stylesheet_link_tag    "main" %>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -40,12 +41,12 @@
 		    <ul class="right">
 		    	<% if current_user %>
 				    <li>
-						<a style="color:#0C7BEE; font-weight:bold;" href="/companies/1/posts"><i class="fi-list"></i> Recent</a>
-						<!-- #2976eb -->
+						<a style="color:#d3d3d3; font-weight:bold;" href="/companies/1/posts"><i class="fi-list"></i> Feed</a>
+						<!-- #0C7BEE -->
 					</li>
 					<li>
-						<a style="color:#0BB640; font-weight:bold;" href="/stats/<%= current_user.company_id %>">
-						<!-- #1fc83b -->
+						<a style="color:#d3d3d3; font-weight:bold;" href="/stats/<%= current_user.company_id %>">
+						<!-- #0BB640b -->
 							<i class="fi-graph-pie"></i> Stats
 						</a>
 					</li>
@@ -57,7 +58,7 @@
 				  <li class="has-dropdown">
 				        <a href="#">
 				        <%= image_tag(current_user.image.url(:small), :style => "width:20px; margin-right:5px; margin-bottom:3px; border-radius:5px;") %>
-				        <%= current_user.first_name %> <%= current_user.last_name %>
+				        <span style="color:#d3d3d3;"><%= current_user.first_name %> <%= current_user.last_name %></span>
 				        <% if current_user.role == "admin" %> 
 					        <span class="radius success label" style="margin-left:3px; margin-bottom:2px;">ADMIN</span><br>
 					    <% end %>
@@ -66,16 +67,16 @@
 					    <% end %>
 				        </a>
 				        <ul class="dropdown">
-					      <li><%= link_to "My Profile", company_user_path(current_user.company, current_user) %></li>
-					      <li><%= link_to "Settings", edit_company_user_path(current_user.company, current_user) %></li>
+					      <li><%= link_to "My Profile", company_user_path(current_user.company, current_user), :style => "color:#d3d3d3;" %></li>
+					      <li><%= link_to "Settings", edit_company_user_path(current_user.company, current_user), :style => "color:#d3d3d3;" %></li>
 					      <% if current_user.role == "admin" %> 
-					        <li><%= link_to('Company Settings', edit_company_path(current_user.company)) %></li>
+					        <li><%= link_to "Company Settings", edit_company_path(current_user.company), :style => "color:#d3d3d3;" %></li>
 					      <% end %>
-					      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+					      <li><%= link_to "Logout", destroy_user_session_path, :method => :delete, :style => "color:#d3d3d3;" %></li>
 				        </ul>
 				  </li>
 				<% else %>
-				  <li><%= link_to 'Login', user_session_path %></li>
+				  <li><%= link_to 'Login', user_session_path, :style => "color:#d3d3d3;" %></li>
 				<% end %>
 		    </ul>
 		  </section>

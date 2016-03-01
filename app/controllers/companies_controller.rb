@@ -10,6 +10,8 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+	@countu = @company.users.count
+	@root_user = @company.users.where(manager_id: 0).last
 	authorize! :read, @company
   end
 
