@@ -28,7 +28,7 @@ public class ProfileFragment extends Fragment {
   TextView profileName;
   @Bind(R.id.email_address)
   TextView emailAddress;
-  @Bind(R.id.profile_role)
+  @Bind(R.id.status_time)
   TextView getRole;
 
   @Override

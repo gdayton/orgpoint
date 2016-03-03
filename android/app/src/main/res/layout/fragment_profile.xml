@@ -40,7 +40,7 @@
                 android:gravity="center_horizontal"/>
 
             <TextView
-                android:id="@+id/profile_role"
+                android:id="@+id/status_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/profile_image"
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/profile_image"
-                android:layout_below="@id/profile_role"
+                android:layout_below="@id/status_time"
                 android:text="jcalles@google.com"
                 android:textSize="16sp"
                 android:fontFamily="sans-serif-medium"
