@@ -74,9 +74,7 @@ public class HomeActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, companyFragment).commit();
         break;
       case R.id.timeline_item:
-
         break;
-
     }
   }
 
