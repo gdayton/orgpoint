@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 import com.orgpoint.android.R;
 import com.orgpoint.android.company.CompanyFragment;
 import com.orgpoint.android.profile.ProfileFragment;
+import com.orgpoint.android.timeline.TimelineFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -74,7 +75,10 @@ public class HomeActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, companyFragment).commit();
         break;
       case R.id.timeline_item:
+        TimelineFragment timelineFragment = TimelineFragment.getInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, timelineFragment).commit();
         break;
+
     }
   }
 

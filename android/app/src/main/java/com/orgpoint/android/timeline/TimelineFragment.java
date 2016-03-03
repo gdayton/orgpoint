@@ -47,24 +47,7 @@ public class TimelineFragment extends Fragment{
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this, view);
-        OrgPointService service = ServiceGenerator.getOrgPointService();
-        Call<List<Company>> response = service.fetchCompanies();
-        response.enqueue(new Callback<List<Company>>() {
-            @Override
-            public void onResponse(Call<List<Company>> call, Response<List<Company>> response) {
-                List<Company> companyList = response.body();
-
-                //Just getting the only company there for now
-                Company defaultCompany = companyList.get(0);
-                companyTitle.setText(defaultCompany.getTitle());
-            }
-
-            @Override
-            public void onFailure(Call<List<Company>> call, Throwable t) {
-                Log.i("Network Call", t.getMessage());
-            }
-        });
+        //ButterKnife.bind(this, view);
 
     }
 
