@@ -13,6 +13,8 @@ import butterknife.ButterKnife;
 import com.orgpoint.android.R;
 import com.orgpoint.android.company.CompanyFragment;
 import com.orgpoint.android.profile.ProfileFragment;
+import com.orgpoint.android.settings.SettingsFragment;
+import com.orgpoint.android.stats.StatsFragment;
 import com.orgpoint.android.timeline.TimelineFragment;
 
 public class HomeActivity extends AppCompatActivity {
@@ -78,7 +80,14 @@ public class HomeActivity extends AppCompatActivity {
         TimelineFragment timelineFragment = TimelineFragment.getInstance();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, timelineFragment).commit();
         break;
-
+      case R.id.stats_item:
+        StatsFragment statsFragment= StatsFragment.getInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, statsFragment).commit();
+        break;
+      case R.id.settings_item:
+        SettingsFragment settingsFragment = SettingsFragment.getInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, settingsFragment).commit();
+        break;
     }
   }
 
