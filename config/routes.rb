@@ -3,14 +3,6 @@ Rails.application.routes.draw do
   resources :photos
   
   devise_for :users
-  #resources :users do
-  #	  member do
-  #		  get :confirm_email
-  #	  end
-  #	  collection do
-  #		  post :import
-  #	  end
-  #end
   
   resources :companies do
 	 resources :departments

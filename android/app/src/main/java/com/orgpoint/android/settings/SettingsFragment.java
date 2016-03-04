@@ -1,4 +1,4 @@
-package com.orgpoint.android.profile;
+package com.orgpoint.android.settings;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,12 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 import com.orgpoint.android.R;
 import com.orgpoint.android.api.OrgPointService;
 import com.orgpoint.android.api.ServiceGenerator;
@@ -22,7 +16,12 @@ import com.orgpoint.android.api.User;
 
 import java.util.List;
 
-public class ProfileFragment extends Fragment {
+import butterknife.Bind;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class SettingsFragment extends Fragment {
 
   @Bind(R.id.profile_name)
   TextView profileName;
@@ -40,13 +39,13 @@ public class ProfileFragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_profile, container, false);
+    return inflater.inflate(R.layout.fragment_settings, container, false);
   }
 
   @Override
   public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    ButterKnife.bind(this, view);
+//    ButterKnife.bind(this, view);
     OrgPointService service = ServiceGenerator.getOrgPointService();
     Call<List<User>> call = service.fetchUsers();
     call.enqueue(new Callback<List<User>>() {
@@ -67,7 +66,7 @@ public class ProfileFragment extends Fragment {
     super.onAttach(context);
   }
 
-  public static ProfileFragment getInstance(){
-    return new ProfileFragment();
+  public static SettingsFragment getInstance(){
+    return new SettingsFragment();
   }
 }

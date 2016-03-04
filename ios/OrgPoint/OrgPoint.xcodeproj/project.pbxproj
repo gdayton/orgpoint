@@ -23,6 +23,8 @@
 		82B86B4D1C64194300840B5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B86B4B1C64194300840B5E /* LaunchScreen.storyboard */; };
 		82CE339B1C7C541400C01E5A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE339A1C7C541400C01E5A /* Constants.swift */; };
 		82DB2B0E1C769DAE00EF343A /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DB2B0D1C769DAE00EF343A /* CircleImage.swift */; };
+		82E55C9D1C8949EB0078C688 /* Dimmable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E55C9C1C8949EB0078C688 /* Dimmable.swift */; };
+		82E55C9F1C894BDE0078C688 /* AddPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E55C9E1C894BDE0078C688 /* AddPostController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		82B86B4E1C64194300840B5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82CE339A1C7C541400C01E5A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		82DB2B0D1C769DAE00EF343A /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		82E55C9C1C8949EB0078C688 /* Dimmable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimmable.swift; sourceTree = "<group>"; };
+		82E55C9E1C894BDE0078C688 /* AddPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostController.swift; sourceTree = "<group>"; };
 		C252B66D01D5EB9254BAF221 /* Pods_OrgPoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrgPoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,6 +89,7 @@
 				829103C41C7B19E400580327 /* UnderlineTextField.swift */,
 				82DB2B0D1C769DAE00EF343A /* CircleImage.swift */,
 				829F72621C85654F009EA6B4 /* TimelineCell.swift */,
+				82E55C9C1C8949EB0078C688 /* Dimmable.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 				8237D0C21C76A8B10085311D /* ProfileController.swift */,
 				829103C11C7B198200580327 /* LoginController.swift */,
 				829F72601C85643B009EA6B4 /* TimelineController.swift */,
+				82E55C9E1C894BDE0078C688 /* AddPostController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -278,9 +284,11 @@
 				829F72651C85656A009EA6B4 /* TimelinePost.swift in Sources */,
 				82DB2B0E1C769DAE00EF343A /* CircleImage.swift in Sources */,
 				829103C91C7B1A1300580327 /* Extensions.swift in Sources */,
+				82E55C9F1C894BDE0078C688 /* AddPostController.swift in Sources */,
 				829F72611C85643B009EA6B4 /* TimelineController.swift in Sources */,
 				829F72631C85654F009EA6B4 /* TimelineCell.swift in Sources */,
 				8237D0C31C76A8B10085311D /* ProfileController.swift in Sources */,
+				82E55C9D1C8949EB0078C688 /* Dimmable.swift in Sources */,
 				829103C21C7B198200580327 /* LoginController.swift in Sources */,
 				829103C51C7B19E400580327 /* OutlinedButton.swift in Sources */,
 				829103C61C7B19E400580327 /* UnderlineTextField.swift in Sources */,

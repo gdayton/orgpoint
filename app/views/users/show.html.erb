@@ -201,11 +201,15 @@ var openPhotoSwipe = function(index_p) {
 				<div class="large-12 column indv-reports">  
 					<% if !@user.reports.nil? %>
 						<% @user.reports.each do |user| %>
-							<%= link_to company_user_path(@company, user.id) do %>
-								<div class="report">
-								    <%= image_tag(user.image.url(:small), :style => "width:25px;") %>
-									<span class="reports-name"><%= user.first_name %> <%= user.last_name %></span>
-									<span class="reports-pos"><%= user.job_role %></span>
+							<%= link_to company_user_path(@company, user), :style => "float:left;" do %>
+								<div class="user-view">
+									<%= image_tag user.image.url(:med), :style => "width:60px; height:60px; float:left;" %>
+									<div class="uright">
+										<span class="uname"><%= user.first_name %> <%= user.last_name %></span><br />
+										<span class="urole"><%= user.job_role %></span><br />
+										<span class="uamount1">34 <i class="fi-torsos"></i></span>
+										<span class="uamount2">4 <i class="fi-torsos"></i></span>
+									</div>
 								</div>
 							<% end %>
 						<% end %>

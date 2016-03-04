@@ -1,24 +1,45 @@
 <% content_for :title, "OrgPoint | #{@company.title}" %>
-<div class="row">
+<div class="row" style="margin-top:50px;">
 	<div class="large-4 large-offset-4 column">
 		<center>
-			<%= image_tag @company.image.url(:small), :style => "width:150px; margin-top:20px;" %>
+			<%= image_tag @company.image.url(:small), :style => "width:250px; margin-top:20px;" %>
 		</center>
 	</div>
 	<div class="large-4 column">
 		<input type="text" placeholder="Search for Coworkers" style="width:200px; margin-top:20px; float:right;" />
 	</div>
 </div>
-<div style="height:60%; width:100%;">
-		<div id="infovis" style="height:100%; border:0px solid black;"></div>
-</div>
-
-<!--<div class="row">
+<!--<div style="height:60%; width:100%;">
+	<div id="infovis" style="height:100%; border:0px solid black;"></div>
+</div>-->
+<div class="row" style="margin-top:25px;">
 	<div class="large-12 column">
-		<% @company.users.each do |user| %>
-			<%= link_to company_user_path(@company, user.id) do %>
-				<h3><%= user.first_name %> <%= user.last_name %></h3>
+		<div style="display:table; margin:0 auto;">
+			<%= link_to company_user_path(@company, @root_user), :style => "margin:20px;" do %>
+				<div class="user-view">
+					<%= image_tag @root_user.image.url(:med), :style => "width:60px; height:60px; float:left;" %>
+					<div class="uright">
+						<span class="uname"><%= @root_user.first_name %> <%= @root_user.last_name %></span><br />
+						<span class="urole"><%= @root_user.job_role %></span><br />
+						<span class="uamount1">34 <i class="fi-torsos"></i></span>
+						<span class="uamount2">4 <i class="fi-torsos"></i></span>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<!-- <hr /> -->
+		<% @company.users.where(manager_id: @root_user.id).each do |user| %>
+			<%= link_to company_user_path(@company, user), :style => "float:left; margin:20px;" do %>
+				<div class="user-view">
+					<%= image_tag user.image.url(:med), :style => "width:60px; height:60px; float:left;" %>
+					<div class="uright">
+						<span class="uname"><%= user.first_name %> <%= user.last_name %></span><br />
+						<span class="urole"><%= user.job_role %></span><br />
+						<span class="uamount1">34 <i class="fi-torsos"></i></span>
+						<span class="uamount2">4 <i class="fi-torsos"></i></span>
+					</div>
+				</div>
 			<% end %>
 		<% end %>
 	</div>
-</div>-->
+</div>

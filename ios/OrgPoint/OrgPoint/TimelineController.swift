@@ -8,11 +8,14 @@
 
 import UIKit
 
-class TimelineController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TimelineController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddPostDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [TimelinePost]()
+    let dimLevel: CGFloat = 0.5
+    let dimSpeed: Double = 0.5
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +54,24 @@ class TimelineController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == SEG_TIMELINE_TO_POST {
+            let addController = segue.destinationViewController as? AddPostController
+            if let viewController = addController {
+                viewController.delegate = self
+            }
+        }
+    }
+    
+    func controller(controller: AddPostController, didAddItem: String) {
+       let newPost = TimelinePost(user: "Jose Calles", time: "Now", content: didAddItem, image: UIImage(named: "jose")!)
+        posts.insert(newPost, atIndex: 0)
+        tableView.reloadData()
+    }
+    
+ 
     
     
 
