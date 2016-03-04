@@ -2,7 +2,6 @@ package com.orgpoint.android.timeline;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,10 +36,9 @@ public class timelineAdapter extends ArrayAdapter<timelineList> {
         {
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
-
-            Log.d(TAG, "get string!!!!!!!!!!!!\\\\\\\\\\\\\\\\\\");
+            
             draw = new ListElement();
-//            draw.imgIcon1 = (ImageView)row.findViewById(R.drawable.glenn);
+//            draw.profilePic = (ImageView)row.findViewById(R.drawable.glenn);
             row.setTag(draw);
         }
         else
@@ -49,14 +47,14 @@ public class timelineAdapter extends ArrayAdapter<timelineList> {
         }
 
         timelineList list = data[position];
-        if (position == 0) draw.imgIcon1.setImageResource(R.drawable.glenn);
+        if (position == 0) draw.profilePic.setImageResource(R.drawable.glenn);
 
         return row;
     }
 
     static class ListElement
     {
-        ImageView imgIcon1;
+        ImageView profilePic;
         TextView username;
         TextView statusText;
     }
