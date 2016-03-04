@@ -28,7 +28,7 @@ public class ProfileFragment extends Fragment {
   TextView profileName;
   @Bind(R.id.email_address)
   TextView emailAddress;
-  @Bind(R.id.profile_role)
+  @Bind(R.id.status_time)
   TextView getRole;
 
   @Override
@@ -52,15 +52,7 @@ public class ProfileFragment extends Fragment {
     call.enqueue(new Callback<List<User>>() {
       @Override
       public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-        if(!response.isSuccess()){
-          return;
-        }
-
-        List<User> userList = response.body();
-        User user = userList.get(0);
-        profileName.setText(user.getFirst_name() + user.getLast_name());
-        getRole.setText(user.getRole());
-        emailAddress.setText(user.getEmail());
+      	
       }
 
       @Override

@@ -22,22 +22,12 @@ class ProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Alamofire.request(.GET, "\(BASE_URL)/users.json").responseJSON {
-            response in
-            if let json = response.result.value {
-                if let userList = json as? [[String : AnyObject]]{
-                    //Just get first user for now 
-                    let firstUser = userList[0]
-                    if let firstName = firstUser["first_name"] as? String
-                        , let lastName = firstUser["last_name"] as? String, let job = firstUser["role"] as? String {
-                        self.role.text = job
-                        self.userName.text = firstName + " " + lastName
-                        self.role.text = job
-                    }
-                }
-            }
-        }
-        
+        userName.text = "Jose Calles"
+        location.text = "Santa Cruz, CA"
+        role.text = "Lead Mobile Developer"
+        aboutText.text = "I have three years working at OrgPoint. I love this job. Life's good."
+        respText.text = "Head honcho on the Android and iOS team" 
+        userImage.image = UIImage(named: "jose")
     }
 
     override func didReceiveMemoryWarning() {

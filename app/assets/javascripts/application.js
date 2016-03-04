@@ -26,4 +26,8 @@
 
 $(document).on('ready page:load', function () {
 	$(function(){ $(document).foundation(); });
+	
+	/*$(".autocomplete").autocomplete({
+		source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
+	});*/
 });

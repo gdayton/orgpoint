@@ -1,25 +1,28 @@
 <script type="text/javascript">
-      google.charts.load('current', {packages: ['corechart', 'bar', 'treemap', 'geochart', 'table']});
+      google.charts.load('current', {packages: ['treemap', 'corechart', 'bar', 'geochart', 'table']});
       google.charts.setOnLoadCallback(drawAll);
       
       function drawAll() {
 	      drawA();
 	      drawB();
 	      drawC();
-	      drawD();
+	      //drawD();
 	      drawE();
+	      drawF();
 	  }
 	  
 	  function drawA(){
         var data = google.visualization.arrayToDataTable([
-          ['Skill', 'Length'],
-          ['PHP', 12],
-          ['Java', 9],
-          ['HTML/CSS', 30]
+          ['Skill', 'Employees'],
+          ['Leadership', 30],
+          ['Word', 15],
+          ['Excel', 9],
+          ['Java', 5],
+          ['Reading', 3]
         ]);
 
         var options = {
-          title: 'Skills',
+          title: 'Top 5 Skills',
           legend: { position: 'none' },
         };
 
@@ -29,7 +32,7 @@
       
       function drawB() {
 	    var data = google.visualization.arrayToDataTable([
-	      ['Task', 'Hours per Day'],
+	      ['Department', 'Employees'],
 	      ['Production',     			11],
 	      ['R&D',      					 2],
 	      ['Purchasing', 				 5],
@@ -39,8 +42,8 @@
 	    ]);
 	    
 	    var options = {
-	      title: '',
-	      pieHole: 0.4,
+	      title: 'Department Distributions',
+	      pieHole: 0.2,
 	    };
 	
 	    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
@@ -49,24 +52,34 @@
 
 	  function drawC(){
 	  	var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2013',  1000,      400],
-          ['2014',  1170,      460],
-          ['2015',  660,       1120],
-          ['2016',  1030,      540]
+          ['Day', 'Hires'],
+          ['1',  1],
+          ['2',  5],
+          ['3',  2],
+          ['4',  0],
+          ['5',  0],
+          ['6',  0],
+          ['7',  1],
+          ['8',  2],
+          ['9',  0],
+          ['10', 1],
+          ['11', 0],
+          ['12', 0],
+          ['13', 0],
+          ['14', 0],
+          ['15', 0]
         ]);
 
         var options = {
-          title: 'Company Performance',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
+          title: 'New Hires',
+          legend: {position: 'none'}
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('area_c'));
         chart.draw(data, options);
 	  }
 
-	  function drawD(){
+	  /*function drawD(){
 	  	var data = google.visualization.arrayToDataTable([
           ['Location', 'Parent', 'Market trade volume (size)', 'Market increase/decrease (color)'],
           ['Global',    null,                 0,                               0],
@@ -99,17 +112,19 @@
           ['Zaire',     'Africa',             8,                               10]
         ]);
 
-        tree = new google.visualization.TreeMap(document.getElementById('tree_map'));
-
-        tree.draw(data, {
+        var chart = new google.visualization.TreeMap(document.getElementById('tree_map'));
+        
+        var options = {
           minColor: '#f00',
           midColor: '#ddd',
           maxColor: '#0d0',
           headerHeight: 15,
           fontColor: 'black',
           showScale: true
-        });
-	  }
+        };
+
+        chart.draw(data, options);
+	  }*/
 
 	  function drawE(){
 	  	var data = google.visualization.arrayToDataTable([
@@ -150,47 +165,62 @@
 <script type="text/javascript">
   
 </script>
+<br />
+<div class="row" style="background-color:#f9f9f9;">
+	<div class="large-4 large-offset-4 column">
+		<center><h2><%= @company.title %></h2></center>
+	</div>
+	<div class="large-4 column">
+		<h4 style="margin-top:15px; float:right;">126 Employees</h4>
+	</div>
+</div>
+<br />
 <div class="row">
-	<br />
 	<div class="large-6 column">
-		<span class="overall-number">126</span><br />
-		<span class="overall-number-label">Employees</span>
+		<h5><b>1453</b> photos</h5>
+		<h5><b>45</b> posts</h5>
+		<h5><b>342</b> comments</h5>
 	</div>
 	<div class="large-6 column">
-		<h2>OrgPoint</h2>
+		<h5>5 Most Popular Posts</h5>
+		<ol>
+			<li><a href="">Myths of Development</a> &middot; Glenn Dayton &middot; 43 likes</li>
+			<li><a href="">Being cool</a> &middot; Bob Marley &middot; 21 likes</li>
+			<li><a href="">More shit</a> &middot; Angel Mars &middot; 4 likes</li>
+			<li><a href="">I hate this stats page</a> &middot; Favil Mar &middot; 1 like</li>
+		</ol>
 	</div>
 </div>
 <div class="row">
+	<br />
 	<div class="large-6 column">
-		<div id="donutchart" style="width: 500px; height: 400px;"></div>
+		<div id="chart_div" style="width:100%;"></div>
 	</div>
 	<div class="large-6 column">
-		<div id="chart_div" style="width: 500px;"></div>
+		<div id="donutchart" style="width:500px;"></div>
 	</div>
 </div>
 <div class="row">
 	<br />
 	<div class="large-6 column">
-		<div id="area_c" style="width:500px;"></div>
+		<div id="area_c" style="width:100%;"></div>
 	</div>
 	<div class="large-6 column">
-		<div id="tree_map" style="width:500px;"></div>
+		<!--<div id="tree_map" style="width:500px;"></div>-->
 	</div>
 </div>
 <div class="row">
 	<br />
 	<div class="large-12 column">
-		<div id="regions_div" style="width:750px;"></div>
+		<div id="regions_div" style="width:100%;"></div>
 	</div>
 </div>
 <div class="row">
 	<br />
 	<div class="large-6 column">
-		<div id="table_div" style="width:500px;"></div>
+		<div id="table_div" style="width:100%;"></div>
 	</div>
 	<div class="large-6 column">
-		<h5># of photos</h5>
-		<h5># of posts</h5>
-		<h5># of comments</h5>
+		<!--<div id="donutchart" style="width:100%;"></div>-->
 	</div>
 </div>

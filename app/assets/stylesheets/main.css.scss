@@ -257,6 +257,35 @@ body{
 	position:relative;
 	top:8px;
 }
+
+.user-view{
+	width:200px;
+	background-color:#f2f2f2;
+	height:60px;
+}
+.user-view:hover{
+	border-right:2px solid black;
+}
+.user-view .uname{
+	font-size:14px;
+	color:black;
+}
+.user-view .urole{
+	font-size:12px;
+	color:gray;
+}
+.user-view .uright{
+	position:relative;
+	top:2px;
+	left:5px;
+}
+.user-view .uamount1{
+	color:#ffa200;
+}
+.user-view .uamount2{
+	color:#cc8100;
+}
+/*
 .overall-number{
 	font-size:45px;
 	font-weight:bold;
@@ -266,4 +295,4 @@ body{
 	font-size:18px;
 	color:gray;
 	text-transform: uppercase;
-}
+}*/

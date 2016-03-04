@@ -43,7 +43,7 @@ var openPhotoSwipe = function(index_p) {
 					<tr>
 						<td></td>
 						<td>
-							<%= link_to user_path(@user.manager.id) do %>
+							<%= link_to company_user_path(@company, @user.manager.id) do %>
 								<span class="manager-nav">
 									<%= @user.manager.first_name %> <%= @user.manager.last_name %>
 								</span>
@@ -58,7 +58,7 @@ var openPhotoSwipe = function(index_p) {
 				<tr>
 					<td width="25%" valign="bottom">
 						<% if !@user.coworkers_disp[0].nil? %>
-							<%= link_to user_path(@user.coworkers_disp[0].id) do %>
+							<%= link_to company_user_path(@company, @user.coworkers_disp[0].id) do %>
 								<span class="minor-nav"><i class="fi-arrow-left minor-nav-arrow"></i> <%= @user.coworkers_disp[0].first_name %> <%= @user.coworkers_disp[0].last_name %></span>
 							<% end %>
 						<% end %>
@@ -68,7 +68,7 @@ var openPhotoSwipe = function(index_p) {
 					</td>
 					<td width="25%" valign="bottom">
 						<% if !@user.coworkers_disp[1].nil? %>
-							<%= link_to user_path(@user.coworkers_disp[1].id) do %>
+							<%= link_to company_user_path(@company, @user.coworkers_disp[1].id) do %>
 								<span class="minor-nav"><%= @user.coworkers_disp[1].first_name %> <%= @user.coworkers_disp[1].last_name %> <i class="fi-arrow-right minor-nav-arrow"></i></span>
 							<% end %>
 						<% end %>
@@ -91,7 +91,7 @@ var openPhotoSwipe = function(index_p) {
 			    </tr>
 		    </table>
 		    <% if can? :update, @user %>
-		    	<%= link_to 'Edit', edit_user_path(@user), class: "button radius tiny" %>
+		    	<%= link_to 'Edit', edit_company_user_path(@company, @user), class: "button radius tiny" %>
 		    <% end %>
 		</div>
 		<div class="large-10 column">	 
@@ -125,28 +125,6 @@ var openPhotoSwipe = function(index_p) {
 				</div>
 			</div>
 			<br />
-			<!--<div class="row">
-				<div class="large-12 column">
-					<div class="show-photos">
-						<% if @photos.count > 0 %>
-							<% @photos.each_with_index do |photo, index| %>
-								<div class="large-2 column">
-									<a onclick="openPhotoSwipe(<%= index %>);">
-										<%= image_tag(photo.image.url(:small)) %>
-									</a>
-								</div>
-							<% end %>
-							<% if (@photos.each.count > 0) && (@photos.each.count < 6) %>
-								<%= content_tag :div, "", :class => "large-#{ ((6 - @photos.each.count) * 2) } column" %>
-							<% end %>
-						<% else %>
-							<div class="large-12 column">
-								<p>No photos</p>
-							</div>
-						<% end %>
-					</div>
-				</div>
-			</div>-->
 			<div class="row">  
 				<div class="large-6 column"> 
 					<center><h5>About Me</h5></center>
@@ -223,11 +201,15 @@ var openPhotoSwipe = function(index_p) {
 				<div class="large-12 column indv-reports">  
 					<% if !@user.reports.nil? %>
 						<% @user.reports.each do |user| %>
-							<%= link_to user_path(user.id) do %>
-								<div class="report">
-								    <%= image_tag(user.image.url(:small), :style => "width:25px;") %>
-									<span class="reports-name"><%= user.first_name %> <%= user.last_name %></span>
-									<span class="reports-pos"><%= user.job_role %></span>
+							<%= link_to company_user_path(@company, user), :style => "float:left;" do %>
+								<div class="user-view">
+									<%= image_tag user.image.url(:med), :style => "width:60px; height:60px; float:left;" %>
+									<div class="uright">
+										<span class="uname"><%= user.first_name %> <%= user.last_name %></span><br />
+										<span class="urole"><%= user.job_role %></span><br />
+										<span class="uamount1">34 <i class="fi-torsos"></i></span>
+										<span class="uamount2">4 <i class="fi-torsos"></i></span>
+									</div>
 								</div>
 							<% end %>
 						<% end %>
