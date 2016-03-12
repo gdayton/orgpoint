@@ -10,12 +10,47 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="row">
+	  <div class="large-3 column">
+		  <%= render 'settingsbar' %>
+	  </div>
+	  <div class="large-9 column">
+		  <div class="row">
+			  <div class="large-12 column">
+				  <br />
+				  <h3>General</h3>
+			  </div>
+		  </div>
+		  <div class="row">		  
+			  <div class="large-6 column">
+				  <div class="field">
+					 <%= f.label :title %>
+				     <%= f.text_field :title %>
+				  </div>
+			  </div>
+		  </div>
+		  
+		  <div class="row">		  
+			  <div class="large-6 column">
+				  <div class="field">
+				     <table border="0" width="100%">
+					     <tr>
+						     <td><%= image_tag(@company.image.url(:small)) %></td>
+						     <td><br /><%= f.file_field :image %></td>
+					     </tr>
+				     </table>
+				  </div>
+			  </div>
+		  </div>
+		  
+		  <div class="row">		  
+			  <div class="large-12 column">
+				  <div class="actions">
+				    <%= f.submit "Save", :class => "button radius small" %>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
   </div>
 <% end %>

@@ -10,6 +10,9 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+	@countu = @company.users.count
+	@root_user = @company.users.where(manager_id: 0).last
+	authorize! :read, @company
   end
 
   # GET /companies/new
@@ -19,6 +22,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+	authorize! :manage, @company
   end
 
   # POST /companies
@@ -40,6 +44,7 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   # PATCH/PUT /companies/1.json
   def update
+	authorize! :manage, @company
     respond_to do |format|
       if @company.update(company_params)
         format.html { redirect_to @company, notice: 'Company was successfully updated.' }
@@ -69,6 +74,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:title)
+      params.require(:company).permit(:title, :image)
     end
 end

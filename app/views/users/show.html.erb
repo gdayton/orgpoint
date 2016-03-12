@@ -1,3 +1,39 @@
+<% content_for :title, "OrgPoint | #{@user.first_name} #{@user.last_name}" %>
+
+<script type="text/javascript">
+var openPhotoSwipe = function(index_p) {
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    
+    var startIndex = typeof index_p !== 'undefined' ?  index_p : 0;
+
+    // build items array
+    var items = [
+        <% @photos.each do |photo| %>
+			{
+				src: "<%= image_path photo.image.url(:large) %>",
+				w: 1024,
+				h: 683
+			},
+		<% end %>
+    ];
+    
+    // define options (if needed)
+    var options = {
+             // history & focus options are disabled on CodePen        
+        history: false,
+        focus: false,
+
+        showAnimationDuration: 0,
+        hideAnimationDuration: 0,
+        index: startIndex
+        
+    };
+    
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.init();
+};
+</script>
+
 <div>
 	<div class="row">
 		<div class="large-12 column">
@@ -7,12 +43,12 @@
 					<tr>
 						<td></td>
 						<td>
-							<%= link_to user_path(@user.manager.id) do %>
+							<%= link_to company_user_path(@company, @user.manager.id) do %>
 								<span class="manager-nav">
 									<%= @user.manager.first_name %> <%= @user.manager.last_name %>
 								</span>
 								<span class="manager-nav-sec">
-									<%= @user.manager.role %>
+									<%= @user.manager.job_role %>
 								</span>
 							<% end %>
 						</td>
@@ -22,17 +58,17 @@
 				<tr>
 					<td width="25%" valign="bottom">
 						<% if !@user.coworkers_disp[0].nil? %>
-							<%= link_to user_path(@user.coworkers_disp[0].id) do %>
+							<%= link_to company_user_path(@company, @user.coworkers_disp[0].id) do %>
 								<span class="minor-nav"><i class="fi-arrow-left minor-nav-arrow"></i> <%= @user.coworkers_disp[0].first_name %> <%= @user.coworkers_disp[0].last_name %></span>
 							<% end %>
 						<% end %>
 					</td>
 					<td width="50%">
-						<center><span class="name-nav"><%= @user.first_name %> <%= @user.last_name %></span> <span class="name-nav-sec"><%= @user.role %></span></center>
+						<center></center>
 					</td>
 					<td width="25%" valign="bottom">
 						<% if !@user.coworkers_disp[1].nil? %>
-							<%= link_to user_path(@user.coworkers_disp[1].id) do %>
+							<%= link_to company_user_path(@company, @user.coworkers_disp[1].id) do %>
 								<span class="minor-nav"><%= @user.coworkers_disp[1].first_name %> <%= @user.coworkers_disp[1].last_name %> <i class="fi-arrow-right minor-nav-arrow"></i></span>
 							<% end %>
 						<% end %>
@@ -43,11 +79,7 @@
 	</div>
 	<div class="row">
 		<div class="large-2 column">
-			<% if @user.image.url(:large) != "/images/large/missing.png" %>
-		    	<%= image_tag(@user.image.url(:large), :style => "width:100%;") %>
-		    <% else %>
-		    	<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:100%;" />
-		    <% end %>
+		    <%= image_tag(@user.image.url(:large), :style => "width:100%;") %>
 		    <table class="controlling-count" border="0" cellspacing="0" cellpadding="0" width="100%">
 			    <tr>
 				    <td style="padding:0px;">
@@ -58,58 +90,73 @@
 					</td>
 			    </tr>
 		    </table>
-		    <%= link_to 'Edit', edit_user_path(@user), class: "button radius tiny" %>
+		    <% if can? :update, @user %>
+		    	<%= link_to 'Edit', edit_company_user_path(@company, @user), class: "button radius tiny" %>
+		    <% end %>
 		</div>
 		<div class="large-10 column">	 
-			<div class="row">
-				<div class="large-4 column">
-					<b>Mobile</b> <%= @user.mobile_phone %><br />
-					<b><%= convert_video_platform(@user.video_platform) %></b> <%= @user.video_handle %>
+			<div style="background-color:#f9f9f9; padding:15px;">
+				<div class="row" style="margin-bottom:10px;">
+					<div class="large-10 column">
+						<span class="name-nav"><%= @user.first_name %> <%= @user.last_name %></span> <span class="name-nav-sec"><%= @user.job_role %></span>
+					</div>
+					<div class="large-2 column">
+					</div>
 				</div>
-				<div class="large-4 column">
-					<b>Work</b> <%= @user.work_phone %><br />
-					<b>Email</b> <%= @user.email %>
-				</div>
-				<div class="large-4 column">
-					<b>Location</b> San Diego, CA<br />
-					<b class="era">Employee since 
-					<% if !@user.start_date.nil? %>
-						<%= @user.start_date.year %>
-					<% else %>
-						present
-					<% end %>
-					</b>
+				<div class="row">
+					<div class="large-4 column">
+						<b>Mobile</b> <%= @user.mobile_phone %><br />
+						<b><%= convert_video_platform(@user.video_platform) %></b> <%= @user.video_handle %>
+					</div>
+					<div class="large-4 column">
+						<b>Work</b> <%= @user.work_phone %><br />
+						<b>Email</b> <%= @user.email %>
+					</div>
+					<div class="large-4 column">
+						<b>Location</b> San Diego, CA<br />
+						<b class="era">Employee since 
+						<% if !@user.start_date.nil? %>
+							<%= @user.start_date.year %>
+						<% else %>
+							present
+						<% end %>
+						</b>
+					</div>
 				</div>
 			</div>
 			<br />
 			<div class="row">  
 				<div class="large-6 column"> 
-					<h4>About Me</h4>
-					<div class="panel">
+					<center><h5>About Me</h5></center>
+					<div style="padding:15px; background-color:#f9f9f9;">
 						<%= @user.about_me %>
 					</div>
 				</div>
 				<div class="large-6 column"> 
-					<h4>Responsibilities</h4>
-					<div class="panel">
+					<center><h5>Responsibilities</h5></center>
+					<div style="padding:15px; background-color:#f9f9f9;">
 						<%= @user.resp %>
 					</div>
 				</div>
 			</div>
+			<br />
 			<div>
 				<div class="row">
 					<div class="large-12 column">
-						<%= link_to "Upload", new_photo_path, :style => "float:right; margin-top:8px;", :class => "secondary button tiny radius" %>
-						<!--<a link="javascript:void();" ng-click="addPhoto.popupCancel(); expanded = false" style="float:right; margin-top:8px;" class="alert button tiny radius">Cancel</a>-->
-						<h4>Photos</h4>
+						<% if can? :update, @user %>
+							<%= link_to "Upload", new_photo_path, :style => "float:right; margin-top:8px;", :class => "secondary button tiny radius" %>
+						<% end %>
+						<h5>Photos</h5>
 					</div>
 				</div>
 				<div class="row image-profile">
 					<div class="show-photos">
 						<% if @photos.count > 0 %>
-							<% @photos.each do |photo| %>
+							<% @photos.each_with_index do |photo, index| %>
 								<div class="large-2 column">
-									<%= image_tag(photo.image.url(:small)) %>
+									<a onclick="openPhotoSwipe(<%= index %>);">
+										<%= image_tag(photo.image.url(:small)) %>
+									</a>
 								</div>
 							<% end %>
 							<% if (@photos.each.count > 0) && (@photos.each.count < 6) %>
@@ -140,29 +187,29 @@
 			<div class="row">
 				<div class="large-12 column">
 					<br />
-					<h4>Recent Activity</h4>
+					<h5>Recent Activity</h5>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="large-12 column">
 					<br />
-					<h4><%= @user.first_name %>'s Reports</h4>
+					<h5><%= @user.first_name %>'s Reports</h5>
 				</div>
 			</div>
 			<div class="row">
 				<div class="large-12 column indv-reports">  
 					<% if !@user.reports.nil? %>
 						<% @user.reports.each do |user| %>
-							<%= link_to user_path(user.id) do %>
-								<div class="report">
-									<% if user.image.url(:small) != "/images/small/missing.png" %>
-								    	<%= image_tag(user.image.url(:small), :style => "width:25px;") %>
-								    <% else %>
-								    	<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:25px;" />
-								    <% end %>
-									<span class="reports-name"><%= user.first_name %> <%= user.last_name %></span>
-									<span class="reports-pos"><%= user.role %></span>
+							<%= link_to company_user_path(@company, user), :style => "float:left;" do %>
+								<div class="user-view">
+									<%= image_tag user.image.url(:med), :style => "width:60px; height:60px; float:left;" %>
+									<div class="uright">
+										<span class="uname"><%= user.first_name %> <%= user.last_name %></span><br />
+										<span class="urole"><%= user.job_role %></span><br />
+										<span class="uamount1">34 <i class="fi-torsos"></i></span>
+										<span class="uamount2">4 <i class="fi-torsos"></i></span>
+									</div>
 								</div>
 							<% end %>
 						<% end %>
@@ -171,4 +218,71 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>

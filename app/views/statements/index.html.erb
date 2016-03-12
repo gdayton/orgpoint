@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="large-3 column">
+		<%= render 'companies/settingsbar' %>
+	</div>
+	<div class="large-9 column">
+		<br />
+		<h3>Billing</h3>
+		<br />
+		<table width="100%" border="0">
+		  <thead>
+			  <tr>
+				  <td>Date</td>
+				  <td>Amount</td>
+				  <td></td>
+			  </tr>
+		  </thead>
+		  <tbody>
+		    <% @statements.each do |statement| %>
+		      <tr>
+			    <td width="120px"><%= statement.created_at.to_s(:billing_date) %></td>
+		        <td><%= number_to_currency(statement.amount) %></td>
+		        <td width="65px;">
+			        <%= link_to company_statement_path(@company, statement), :class => "button radius tiny secondary", :style => "margin-bottom:0;" do %>
+			        	<i class="fi-page-filled"></i>
+			        <% end %>
+		        </td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+		
+		<br>
+		
+		<!--<%= link_to "New Location" ,new_company_location_path(@company), :class => "button radius small" %>-->
+	</div>
+</div>

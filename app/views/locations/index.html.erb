@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Locations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Company</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= location.title %></td>
-        <td><%= location.company %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Location', new_location_path %>
+<div class="row">
+	<div class="large-3 column">
+		<%= render 'companies/settingsbar' %>
+	</div>
+	<div class="large-9 column">
+		<br />
+		<h3>Manage Locations</h3>
+		<br />
+		<%= link_to "New Location" ,new_company_location_path(@company), :class => "button radius tiny" %>
+		<table width="100%" border="0">
+		  <tbody>
+		    <% @locations.each do |location| %>
+		      <tr>
+		        <td><%= location.title %></td>
+		        <td width="65px;">
+			        <%= link_to edit_company_location_path(@company, location), :class => "button radius tiny secondary", :style => "margin-bottom:0;" do %>
+			        	<i class="fi-clipboard-pencil"></i>
+			        <% end %>
+		        </td>
+		        <td width="65px;">
+			        <%= link_to company_location_path(@company, location), :class => "button radius tiny secondary", :style => "margin-bottom:0;", method: :delete, data: { confirm: 'Are you sure?' } do %>
+			        	<i class="fi-trash"></i>
+			        <% end %>
+		        </td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+</div>

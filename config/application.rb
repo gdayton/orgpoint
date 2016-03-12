@@ -29,5 +29,15 @@ module Directory
     config.serve_static_files = true
     
     config.assets.paths << Rails.root.join("vendor", "assets", "bower_components")
+    
+    config.paperclip_defaults = {
+        :storage => :s3,
+        :s3_host_name => 's3-us-west-1.amazonaws.com',
+        :s3_credentials => {
+			:bucket => "orgpoint",
+			:access_key_id => "AKIAJXFJLRPQ3ASZSJIQ",
+			:secret_access_key => "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"
+  		}
+ 	}
   end
 end

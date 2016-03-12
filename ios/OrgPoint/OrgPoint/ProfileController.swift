@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 
 
 
@@ -21,12 +21,17 @@ class ProfileController: UIViewController {
     @IBOutlet weak var userName : UILabel!
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        userName.text = "Jose Calles"
+        location.text = "Santa Cruz, CA"
+        role.text = "Lead Mobile Developer"
+        aboutText.text = "I have three years working at OrgPoint. I love this job. Life's good."
+        respText.text = "Head honcho on the Android and iOS team" 
+        userImage.image = UIImage(named: "jose")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
     }
     
 

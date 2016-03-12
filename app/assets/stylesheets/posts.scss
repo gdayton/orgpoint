@@ -1,3 +1,39 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+#hide {
+  display: None;
+}
+
+#timeline {
+	padding: 10px 20px;
+	margin: 10px 0;
+}
+
+#timeline-user {
+	// Uses color for dev purposes
+	// background: #FFE95C;
+}
+
+#timeline-post {
+	// Uses color for dev purposes
+	// background: #5CFF98;
+}
+
+#timeline-options {
+	// Uses color for dev purposes
+	// background: #FFE95C;
+}
+
+.post-content-hidden span {
+	display: none;
+}

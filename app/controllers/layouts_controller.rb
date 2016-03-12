@@ -12,5 +12,6 @@ class LayoutsController < ApplicationController
 	end
 
 	def faq
+		
 	end
 end

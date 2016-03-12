@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219074141) do
+ActiveRecord::Schema.define(version: 20160229093851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,12 @@ ActiveRecord::Schema.define(version: 20160219074141) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -70,9 +74,20 @@ ActiveRecord::Schema.define(version: 20160219074141) do
     t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "company_id"
   end
 
+  add_index "posts", ["company_id"], name: "index_posts_on_company_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "statements", force: :cascade do |t|
+    t.integer  "company_id"
+    t.decimal  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "statements", ["company_id"], name: "index_statements_on_company_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -104,6 +119,7 @@ ActiveRecord::Schema.define(version: 20160219074141) do
     t.date     "start_date"
     t.text     "about_me"
     t.text     "resp"
+    t.string   "job_role"
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
@@ -117,5 +133,6 @@ ActiveRecord::Schema.define(version: 20160219074141) do
   add_foreign_key "locations", "companies"
   add_foreign_key "photos", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "statements", "companies"
   add_foreign_key "users", "companies"
 end

@@ -13,3 +13,5 @@ ActionMailer::Base.smtp_settings = {
   :domain         => 'heroku.com',
   :enable_starttls_auto => true
 }
+
+Time::DATE_FORMATS[:billing_date] = "%b %Y"

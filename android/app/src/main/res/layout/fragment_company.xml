@@ -5,7 +5,7 @@
 
 
     <android.support.v7.widget.CardView
-        android:id="@+id/profile_header"
+        android:id="@+id/company_header"
         android:layout_width="match_parent"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/company_image"
-                android:text="Jose Calles"
+                android:text="Company"
                 android:textSize="24sp"
                 android:fontFamily="sans-serif-light"
                 android:layout_marginStart="16dp"
@@ -43,6 +43,33 @@
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/company_user"
+        android:layout_width="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_height="100dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/user_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jose Calles"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
 
 </LinearLayout>
