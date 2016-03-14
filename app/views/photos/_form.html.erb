@@ -12,18 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :caption %><br>
-    <%= f.text_field :caption %>
-  </div>
-  <!--<div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>-->
-  <div class="field">
-    <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
+  <div class="field">
+    <%= f.text_area :caption, :placeholder => "Caption" %>
+  </div>
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Upload", :class => "button radius small" %>
   </div>
 <% end %>

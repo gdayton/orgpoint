@@ -103,6 +103,14 @@
 						<%= f.label :role %><br>
 						<%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
 					</div>
+					<div class="field">
+						<%= f.label "Department" %>
+						<%= f.collection_select :department_id, @departments, :id, :title, include_blank: false %>
+					</div>
+					<div class="field">
+						<%= f.label "Location" %>
+						<%= f.collection_select :location_id, @locations, :id, :title, include_blank: false %>
+					</div>
 					<div class="actions">
 						<%= f.submit "Save", :class => "button radius small" %>
 					</div>

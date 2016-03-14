@@ -31,9 +31,14 @@ class User < ActiveRecord::Base
   
   belongs_to :company
   belongs_to :manager, class_name: "User"
+  belongs_to :location
+  belongs_to :department
+  
   has_many :posts
   has_many :comments
   has_many :photos
+  #has_one :location
+  #has_one :department
   
   def self.import(file, company)
 	ss = open_spreadsheet(file)

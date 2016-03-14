@@ -97,23 +97,59 @@ var openPhotoSwipe = function(index_p) {
 		<div class="large-10 column">	 
 			<div style="background-color:#f9f9f9; padding:15px;">
 				<div class="row" style="margin-bottom:10px;">
-					<div class="large-10 column">
+					<div class="large-8 column">
 						<span class="name-nav"><%= @user.first_name %> <%= @user.last_name %></span> <span class="name-nav-sec"><%= @user.job_role %></span>
 					</div>
-					<div class="large-2 column">
+					<div class="large-4 column">
+						<div style="width:100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+							<% if !@user.department.nil? %>
+								<span class="nav-department"><%= @user.department.title %></span>
+							<% end %>
+						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="large-4 column">
-						<b>Mobile</b> <%= @user.mobile_phone %><br />
-						<b><%= convert_video_platform(@user.video_platform) %></b> <%= @user.video_handle %>
+						<b>Mobile</b> 
+						<% if !@user.mobile_phone.empty? %>
+							<%= @user.mobile_phone %>
+						<% else %>
+							<i class="fi-prohibited" style="color:grey;"></i>
+						<% end %>
+						<br />
+						<% if !@user.video_handle.empty? %>
+							<b><%= convert_video_platform(@user.video_platform) %></b> <%= @user.video_handle %>
+						<% else %>
+							<b>Video Chat</b> <i class="fi-prohibited" style="color:grey;"></i>
+						<% end %>
 					</div>
 					<div class="large-4 column">
-						<b>Work</b> <%= @user.work_phone %><br />
-						<b>Email</b> <%= @user.email %>
+						<b>Work</b> 
+						<% if !@user.work_phone.empty? %>
+							<%= @user.work_phone %>
+						<% else %>
+							<i class="fi-prohibited" style="color:grey;"></i>
+						<% end %>
+						<br />
+						<b>Email</b> 
+						<% if !@user.email.empty? %>
+							<%= @user.email %>
+						<% else %>
+							<i class="fi-prohibited" style="color:grey;"></i>
+						<% end %>
 					</div>
 					<div class="large-4 column">
-						<b>Location</b> San Diego, CA<br />
+						<b>Location</b>
+						<% if !@user.location.nil? %> 
+							<% if !@user.location.title.empty? %>
+								<%= @user.location.title %>
+							<% else %>
+								<i class="fi-prohibited" style="color:grey;"></i>
+							<% end %>
+						<% else %>
+							<i class="fi-prohibited" style="color:grey;"></i>
+						<% end %>
+						<br />
 						<b class="era">Employee since 
 						<% if !@user.start_date.nil? %>
 							<%= @user.start_date.year %>

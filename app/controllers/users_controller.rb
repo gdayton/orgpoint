@@ -37,6 +37,9 @@ class UsersController < ApplicationController
 	@user_blank.last_name = "aaaaa"
 	@user_blank.id = 0
 	@companies = Company.all
+	
+	@departments = @company.departments
+	@locations = @company.locations
   end
 
   # POST /users
@@ -109,6 +112,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :image, :role, :manager_id, :mobile_phone, :work_phone, :start_date, :video_platform, :video_handle, :about_me, :resp, :job_role)
+      params.require(:user).permit(:first_name, :last_name, :email, :image, :role, :manager_id, :mobile_phone, :work_phone, :start_date, :video_platform, :video_handle, :about_me, :resp, :job_role, :location_id, :department_id)
     end
 end
