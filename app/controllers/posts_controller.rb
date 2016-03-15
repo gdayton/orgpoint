@@ -5,10 +5,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = @company.posts
+    @posts = @company.posts(:order => "updated_at DESC")
     
     @post = Post.new
     @users = User.all
+    @current_user_id = current_user.id
   end
 
   # GET /posts/1
