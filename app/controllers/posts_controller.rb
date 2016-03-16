@@ -5,11 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-<<<<<<< HEAD
     @posts = @company.posts.order(created_at: :desc)
-=======
-    @posts = @company.posts(:order => "updated_at DESC")
->>>>>>> 50b6f3b9641d609bafcd6b9971de1b7d7d1e2259
     
     @post = Post.new
     @users = User.all
