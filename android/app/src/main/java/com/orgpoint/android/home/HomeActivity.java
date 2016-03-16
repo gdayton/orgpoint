@@ -39,6 +39,9 @@ public class HomeActivity extends AppCompatActivity {
     setSupportActionBar(toolbar);
     setupDrawerLayout();
     setupNavigationView();
+
+    ProfileFragment profileFragment = ProfileFragment.getInstance();
+    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, profileFragment).commit();
   }
 
   private void setupNavigationView() {
