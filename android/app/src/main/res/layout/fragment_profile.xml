@@ -3,159 +3,203 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/profile_header"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_height="120dp"
-        >
-
-        <RelativeLayout
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="16dp"
-                android:src="@drawable/jose_picture"
-                />
-
-            <TextView
-                android:id="@+id/profile_name"
+            android:layout_height="wrap_content" >
+            <android.support.v7.widget.CardView
+                android:id="@+id/profile_header"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/profile_image"
-                android:text="Jose Calles"
-                android:textSize="24sp"
-                android:fontFamily="sans-serif-light"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center_horizontal"/>
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_height="120dp"
+                >
 
-            <TextView
-                android:id="@+id/status_time"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="16dp"
+                        android:src="@drawable/jose_picture"
+                        />
+
+                    <TextView
+                        android:id="@+id/profile_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/profile_image"
+                        android:text="Jose Calles"
+                        android:textSize="24sp"
+                        android:fontFamily="sans-serif-light"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:id="@+id/status_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/profile_image"
+                        android:layout_below="@id/profile_name"
+                        android:text="Software Engineer"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:id="@+id/email_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/profile_image"
+                        android:layout_below="@id/status_time"
+                        android:text="jcalles@google.com"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center_horizontal"/>
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/about_section"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/profile_image"
-                android:layout_below="@id/profile_name"
-                android:text="Software Engineer"
-                android:textSize="18sp"
-                android:fontFamily="sans-serif-medium"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:gravity="center_horizontal"/>
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_height="130dp"
+                android:layout_below="@+id/profile_header"
+                >
 
-            <TextView
-                android:id="@+id/email_address"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                <TextView
+                    android:id="@+id/about_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    />
+
+                    <TextView
+                        android:id="@+id/about_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_below="@id/about_label"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/placeholder_about"
+                        />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/responsiblities_section"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/profile_image"
-                android:layout_below="@id/status_time"
-                android:text="jcalles@google.com"
-                android:textSize="16sp"
-                android:fontFamily="sans-serif-medium"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:gravity="center_horizontal"/>
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_height="130dp"
+                android:layout_below="@+id/about_section"
+                >
 
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:id="@+id/responsibilities_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Responsibilities"
+                        android:textSize="22sp"
+                        android:fontFamily="sans-serif-light"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="16dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/resp_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_below="@id/responsibilities_label"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/placeholder_responsibilities"
+                        />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
 
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/about_section"
-        android:layout_width="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_height="130dp"
-        android:layout_below="@+id/profile_header"
-        >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-        <TextView
-            android:id="@+id/about_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About"
-            android:textSize="22sp"
-            android:fontFamily="sans-serif-light"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            />
-
-            <TextView
-                android:id="@+id/about_text"
+            <android.support.v7.widget.CardView
+                android:id="@+id/photos_section"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:fontFamily="sans-serif-medium"
-                android:layout_below="@id/about_label"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/placeholder_text"
-                />
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_height="130dp"
+                android:layout_below="@+id/responsiblities_section"
+                >
 
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/responsiblities_section"
-        android:layout_width="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_height="130dp"
-        android:layout_below="@+id/about_section"
-        >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:src="@drawable/defaultphoto1" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView2"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/defaultphoto2"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
 
-            <TextView
-                android:id="@+id/responsibilities_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Responsibilities"
-                android:textSize="22sp"
-                android:fontFamily="sans-serif-light"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
-                />
-
-            <TextView
-                android:id="@+id/resp_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:fontFamily="sans-serif-medium"
-                android:layout_below="@id/responsibilities_label"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/placeholder_text"
-                />
-
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
 </RelativeLayout>

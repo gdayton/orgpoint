@@ -1,24 +1,60 @@
 <script type="text/javascript">
+
 function sendPost(){
 	var postd = { 
 		"post_type": $(".post_type").val(), 
 		"content": $(".content").val(), 
-		"user_id": 16, 
+		"user_id": $('#inp_post_cont').data('usid'), 
 		"company_id": 1 
 	};
+
+	console.log("Sending AJAX");
 	
 	$.ajax({
 	    type: "POST",
-	    url: "/companies/1/posts",
+	    url: "./posts",
 	    data: JSON.stringify({ post: postd }),
 	    contentType: "application/json; charset=utf-8",
 	    dataType: "json",
-	    success: function(data){alert(data);},
+	    success: function(data){
+	    	alert(data);
+	    },
 	    failure: function(errMsg) {
 	        alert(errMsg);
+	    },
+	    complete: function() {
+	    	var posting_user_imgURL = "";
+	    	if ($('#inp_post_submit').data('usimg') != "/images/small/missing.png"){
+	    		posting_user_imgURL = $('#inp_post_submit').data('usimg');
+	    	} else {
+	    		posting_user_imgURL = "http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg";
+	    	}
+	    	var posting_user_name = $('#inp_post_submit').data('usname');
+			var postDiv = document.createElement("div");
+				postDiv.innerHTML = "<div id='timeline' class='row info container-shading'>\
+									<div id='timeline-user' class='medium-2 columns'>\
+										<div>\
+											<img src=" + posting_user_imgURL + " style='width:20px'; />\
+											<div>" + posting_user_name + "</div>\
+										</div>\
+									</div>\
+									<div id='timeline-post'class='medium-8 columns'>\
+										<div>\
+											<div>" + postd.post_type +"</div>\
+											<div class='post-content'>" + postd.content + "</div>\
+										</div>\
+									</div>\
+								</div>";
+			$(postDiv).hide().prependTo("#feed").fadeIn("slow");
+	    	$('#inp_post_type').val(''); 
+	    	$('#inp_post_cont').val(''); 
 	    }
 	});
-}	
+
+	// $('#time').load('./posts?id=#time');
+}
+
+
 </script>
 <style type="text/css">
 .post_item{
@@ -84,6 +120,7 @@ function sendPost(){
 		<div>
 			<a id="expand" class="button radius tiny">New Post</a>
 			<div id="hide">
+<<<<<<< HEAD
 				<input type="text" class="post_type" placeholder="Type"/>
 				<input type="text" class="content" placeholder="Content"/>
 				<button onclick="sendPost();">Post</button>
@@ -158,6 +195,19 @@ function sendPost(){
 				</div>
 			<% end %>
 		<% end %>
+=======
+				<input id="inp_post_type" type="text" class="post_type" placeholder="Type"/>
+				<input id="inp_post_cont" data-usid='<%= @current_user_id %>' type="text" class="content" placeholder="Content"/>
+				<button id="inp_post_submit"
+				data-usname='<%= @users[@current_user_id].first_name %> <%= @users[@current_user_id].last_name %>'
+				data-usimg='<%= @users[@current_user_id].image.url(:small) %>'
+				onclick="sendPost();">Post</button>
+			</div>	
+		</div>
+		<div id="feed">
+			<%= render 'feed_postings' %>
+		<div/>
+>>>>>>> 50b6f3b9641d609bafcd6b9971de1b7d7d1e2259
 		<br>
 	</div>
 </div>

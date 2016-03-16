@@ -1,5 +1,6 @@
 package com.orgpoint.android.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.orgpoint.android.R;
 import com.orgpoint.android.company.CompanyFragment;
+import com.orgpoint.android.login.LoginActivity;
 import com.orgpoint.android.profile.ProfileFragment;
 import com.orgpoint.android.settings.SettingsFragment;
 import com.orgpoint.android.stats.StatsFragment;
@@ -39,6 +41,10 @@ public class HomeActivity extends AppCompatActivity {
     setSupportActionBar(toolbar);
     setupDrawerLayout();
     setupNavigationView();
+
+    ProfileFragment profileFragment = ProfileFragment.getInstance();
+    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, profileFragment).commit();
+
   }
 
   private void setupNavigationView() {
@@ -102,6 +108,10 @@ public class HomeActivity extends AppCompatActivity {
         }
       });
     }
+  }
+
+  public void logOut(View view){
+    startActivity(new Intent(this, LoginActivity.class));
   }
 
   @Override

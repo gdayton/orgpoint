@@ -18,3 +18,4 @@
 
 # Ignore idea file
 /.idea
+*/.DS_Store
