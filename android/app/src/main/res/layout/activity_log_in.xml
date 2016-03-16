@@ -33,6 +33,7 @@
         android:layout_below="@id/welcome_label"
         android:layout_marginTop="64dp"
         android:backgroundTint="@android:color/white"
+        android:text="admin"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         />

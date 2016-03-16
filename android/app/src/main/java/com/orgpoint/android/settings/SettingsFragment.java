@@ -1,6 +1,7 @@
 package com.orgpoint.android.settings;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,8 @@ import com.orgpoint.android.R;
 import com.orgpoint.android.api.OrgPointService;
 import com.orgpoint.android.api.ServiceGenerator;
 import com.orgpoint.android.api.User;
+import com.orgpoint.android.home.HomeActivity;
+import com.orgpoint.android.login.LoginActivity;
 
 import java.util.List;
 
@@ -32,6 +35,7 @@ public class SettingsFragment extends Fragment {
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
+
     super.onCreate(savedInstanceState);
   }
 
@@ -69,4 +73,5 @@ public class SettingsFragment extends Fragment {
   public static SettingsFragment getInstance(){
     return new SettingsFragment();
   }
+  
 }
