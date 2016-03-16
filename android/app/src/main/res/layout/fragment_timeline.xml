@@ -3,133 +3,402 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/timeline_item1"
-        android:layout_width="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_height="120dp"
-        >
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:id="@+id/timeline_item1"
+                android:layout_width="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_height="120dp"
+                >
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/glenn"
-                android:layout_alignParentTop="true"
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/glenn"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/user_name1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Glenn Dayton"
+                        android:textSize="24sp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="left"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignStart="@+id/status_time1"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/status_time1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2 hours ago"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="left"
+                        android:layout_below="@+id/user_name1"
+                        android:layout_toEndOf="@+id/profile_image1"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/email_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Had fun at the Donald Trump rally."
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center_horizontal|left"
+                        android:layout_below="@+id/profile_image1"
+                        android:layout_alignStart="@+id/profile_image1"
+                        android:paddingTop="10dp" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/timeline_item2"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_below="@+id/timeline_item1"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="10dp" />
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp">
 
-            <TextView
-                android:id="@+id/user_name1"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/jose_picture"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/user_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jose Calles"
+                        android:textSize="24sp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="left"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignStart="@+id/status_time"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/status_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="6 hours ago"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="left"
+                        android:layout_below="@+id/user_name"
+                        android:layout_toEndOf="@+id/profile_image"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/status_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Oh em gee last night was so amazing!"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center_horizontal|left"
+                        android:layout_below="@+id/profile_image"
+                        android:layout_alignStart="@+id/profile_image"
+                        android:paddingTop="10dp" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/timeline_item3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Glenn Dayton"
-                android:textSize="24sp"
-                android:fontFamily="sans-serif-light"
-                android:gravity="left"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/status_time1"
-                android:paddingLeft="10dp" />
-
-            <TextView
-                android:id="@+id/status_time1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2 hours ago"
-                android:textSize="18sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="left"
-                android:layout_below="@+id/user_name1"
-                android:layout_toEndOf="@+id/profile_image1"
-                android:paddingLeft="10dp" />
-
-            <TextView
-                android:id="@+id/email_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Had fun at the Donald Trump rally."
-                android:textSize="16sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center_horizontal|left"
-                android:layout_below="@+id/profile_image1"
-                android:layout_alignStart="@+id/profile_image1"
-                android:paddingTop="10dp" />
-
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/timeline_item2"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_below="@+id/timeline_item1"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/jose_picture"
-                android:layout_alignParentTop="true"
+                android:layout_height="120dp"
+                android:layout_below="@+id/timeline_item2"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="10dp" />
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp">
 
-            <TextView
-                android:id="@+id/user_name"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/jesus"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/user_name3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jesus Alcaraz"
+                        android:textSize="24sp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="left"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignStart="@+id/status_time3"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/status_time3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="19 hours ago"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="left"
+                        android:layout_below="@+id/user_name3"
+                        android:layout_toEndOf="@+id/profile_image3"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/status_message3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Don't talk to me, I'm busy doing CFO things"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center_horizontal|left"
+                        android:layout_below="@+id/profile_image3"
+                        android:layout_alignStart="@+id/profile_image3"
+                        android:paddingTop="10dp" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/timeline_item4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jose Calles"
-                android:textSize="24sp"
-                android:fontFamily="sans-serif-light"
-                android:gravity="left"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/status_time"
-                android:paddingLeft="10dp" />
+                android:layout_height="120dp"
+                android:layout_below="@+id/timeline_item3"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp">
 
-            <TextView
-                android:id="@+id/status_time"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image4"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/sheevum"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/user_name4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Shivam Dave"
+                        android:textSize="24sp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="left"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignStart="@+id/status_time4"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/status_time4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="22 hours ago"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="left"
+                        android:layout_below="@+id/user_name4"
+                        android:layout_toEndOf="@+id/profile_image4"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/status_message4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Echo park venmo jean shorts, blue bottle shabby chic tote bag lomo organic sustainable lo-fi squid. VHS yuccie marfa, typewriter YOLO selvage synth. 3 wolf moon freegan venmo, vice affogato raw denim lomo godard drinking vinegar gluten-free readymade bitters bicycle rights. Stumptown direct trade kale chips try-hard street art. Art party tilde food truck locavore, deep v pinterest quinoa brooklyn next level migas wayfarers. Semiotics readymade forage, squid kickstarter blue bottle drinking vinegar biodiesel banjo beard."
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center_horizontal|left"
+                        android:layout_below="@+id/profile_image4"
+                        android:layout_alignStart="@+id/profile_image4"
+                        android:paddingTop="10dp" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/timeline_item5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="6 hours ago"
-                android:textSize="18sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="left"
-                android:layout_below="@+id/user_name"
-                android:layout_toEndOf="@+id/profile_image"
-                android:paddingLeft="10dp" />
+                android:layout_height="120dp"
+                android:layout_below="@+id/timeline_item4"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp">
 
-            <TextView
-                android:id="@+id/status_message"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image5"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/jopesh"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/user_name5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Joseph Ou"
+                        android:textSize="24sp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="left"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignStart="@+id/status_time5"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/status_time5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="22 hours ago"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="left"
+                        android:layout_below="@+id/user_name5"
+                        android:layout_toEndOf="@+id/profile_image5"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/status_message5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="I am the Scrumlord, Baron of the Great Backlog, He Who Sprints with Agility."
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center_horizontal|left"
+                        android:layout_below="@+id/profile_image5"
+                        android:layout_alignStart="@+id/profile_image5"
+                        android:paddingTop="10dp" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/timeline_item6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Oh em gee last night was so amazing!"
-                android:textSize="16sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center_horizontal|left"
-                android:layout_below="@+id/profile_image"
-                android:layout_alignStart="@+id/profile_image"
-                android:paddingTop="10dp" />
+                android:layout_height="120dp"
+                android:layout_below="@+id/timeline_item5"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp">
 
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image6"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/raul"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/user_name6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Raul Lopez-Luna"
+                        android:textSize="24sp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="left"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignStart="@+id/status_time6"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/status_time6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2 days ago"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="left"
+                        android:layout_below="@+id/user_name6"
+                        android:layout_toEndOf="@+id/profile_image6"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/status_message6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hi I'm Raul"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center_horizontal|left"
+                        android:layout_below="@+id/profile_image6"
+                        android:layout_alignStart="@+id/profile_image6"
+                        android:paddingTop="10dp" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
