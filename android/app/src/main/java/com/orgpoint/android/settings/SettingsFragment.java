@@ -73,5 +73,5 @@ public class SettingsFragment extends Fragment {
   public static SettingsFragment getInstance(){
     return new SettingsFragment();
   }
-  
+
 }

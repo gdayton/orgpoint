@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="Auto fetch updates"
         android:checked="true"
-        android:paddingTop="40dp"
+        android:padding="20dp"
         android:paddingLeft="10dp"
         android:id="@+id/switch1" />
 
