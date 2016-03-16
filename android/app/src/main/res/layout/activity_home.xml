@@ -42,7 +42,7 @@
             android:minHeight="?attr/actionBarSize"
             android:background="?android:colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:title="OrgPoint"
+            android:title="Profile"
             />
 
 
