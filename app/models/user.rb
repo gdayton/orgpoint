@@ -69,6 +69,44 @@ class User < ActiveRecord::Base
 	users = User.where(manager_id: self.id)
   end
   
+  def all_reports
+	count_itr = 0
+	# Node node = rootNode.getFirstChild();
+	node = self.reports[0]
+	
+	# while(node!=null)
+	while(!node.nil?)
+		count_itr += 1
+		
+		# if (node.hasChildNodes())
+		if node.reports.count > 0
+			# node = node.getFirstChild();
+			node = node.reports[0]
+		else
+			# while(node.getNextSibling() == null && node != rootNode)
+			# idx += 1
+			idx = 1
+			logger.info "===== test ====="
+			logger.info "ID: " + node.coworkers[idx].id.to_s
+			logger.info "================"
+			while(!node.coworkers[idx].nil? && node.coworkers[idx] != self)
+				#ensure that's its not the root
+				#if self.manager_id != 0
+					#logger.info "========"
+					#logger.info node.id+" "+node.first_name+" "+node.last_name
+					#logger.info "========"
+					
+				node = User.find(node.manager_id)
+				count_itr += 1
+			end
+		
+			idx += 1
+			node = node.reports[idx]
+		end
+	end
+	return count_itr
+  end
+  
   def coworkers
 	begin
 		manager = User.find(self.manager_id)

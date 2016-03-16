@@ -83,10 +83,10 @@ var openPhotoSwipe = function(index_p) {
 		    <table class="controlling-count" border="0" cellspacing="0" cellpadding="0" width="100%">
 			    <tr>
 				    <td style="padding:0px;">
-					    <span class="all">1230 <i class="fi-torsos-all"></i></span>
+					    <span class="all"><%= @user.reports.count %> <i class="fi-torsos-all"></i></span>
 				    </td>
 					<td style="padding:0px;">
-						<span class="direct">10 <i class="fi-torsos"></i></span>
+						<span class="direct"><%= @user.reports.count %> <i class="fi-torsos"></i></span>
 					</td>
 			    </tr>
 		    </table>
@@ -238,13 +238,13 @@ var openPhotoSwipe = function(index_p) {
 					<% if !@user.reports.nil? %>
 						<% @user.reports.each do |user| %>
 							<%= link_to company_user_path(@company, user), :style => "float:left;" do %>
-								<div class="user-view">
+								<div class="user-view" style="margin:10px;">
 									<%= image_tag user.image.url(:med), :style => "width:60px; height:60px; float:left;" %>
 									<div class="uright">
 										<span class="uname"><%= user.first_name %> <%= user.last_name %></span><br />
 										<span class="urole"><%= user.job_role %></span><br />
-										<span class="uamount1">34 <i class="fi-torsos"></i></span>
-										<span class="uamount2">4 <i class="fi-torsos"></i></span>
+										<span class="uamount1"><%= user.reports.count %> <i class="fi-torsos"></i></span>
+										<span class="uamount2"><%= user.reports.count %> <i class="fi-torsos"></i></span>
 									</div>
 								</div>
 							<% end %>

@@ -20,37 +20,143 @@ function sendPost(){
 	});
 }	
 </script>
+<style type="text/css">
+.post_item{
+	padding:5px;
+	margin-bottom:5px;
+}
+.post_item .date{
+	color:gray;
+	margin-left:10px;
+	font-size:12px;
+}
+.post_item .uname{
+	color:black;
+	font-size:14px;
+	margin-left:10px;
+}
+.post_item .content{
+	margin:10px;
+}
+.post_item .name-date{
+	/*position:relative;
+	top:5px;*/
+	margin-left:10px;
+	margin-top:3px;
+}
+.new-hire{
+	background-color:#e8fbe8;
+}
+.org{
+	background-color:#edf6ff;
+}
+.rep{
+	background-color:#ffffed;
+}
+.org-info{
+	color:#55aaff;
+	float:right;
+	font-size:14px;
+	margin-top:12px;
+	margin-right:10px;
+}
+.new-hire-info{
+	color:#25da25;
+	float:right;
+	font-size:14px;
+	margin-top:12px;
+	margin-right:10px;
+}
+.rep-info{
+	color:#ffaa55;
+	float:right;
+	font-size:14px;
+	margin-top:12px;
+	margin-right:10px;
+}
+.photo-content{
+	margin-top:10px;
+}
+</style>
 <div class="row">
-	<div class="large-12 column">
+	<div class="large-8 column">
 		<br />
 		<div>
 			<a id="expand" class="button radius tiny">New Post</a>
 			<div id="hide">
-				<!--<div><%= render 'form'%></div>-->
 				<input type="text" class="post_type" placeholder="Type"/>
 				<input type="text" class="content" placeholder="Content"/>
 				<button onclick="sendPost();">Post</button>
 			</div>	
 		</div>	
+		
 		<% @posts.each do |post| %>
-				<div id="timeline" class="row info container-shading">
-					<div id="timeline-user"class="medium-2 columns">
-						<div>
-							<% if post.user.image.url(:small) != "/images/small/missing.png" %>
-								<%= image_tag(post.user.image.url(:small), :style => "width:20px;")%>
-							<% else %>
-								<img src="http://www.coverbash.com/wp-content/themes/covers/images/blank_profile_pic.jpg" style="width:20px;" />
-							<% end %>
-							<div><%= post.user.first_name %> <%= post.user.last_name %></div>
+			<% if post.post_type == 0 %>
+				<div class="post_item">
+					<div class="row">
+						<div class="large-12 column">
+							<%= image_tag(post.user.image.url(:small), :style => "width:40px; height:40px; float:left;") %>
+							<div class="name-date">
+								<a class="uname" href=""><%= post.user.first_name %> <%= post.user.last_name %></a><br /><span class="date"><%= post.created_at %></span>
+							</div>
 						</div>
 					</div>
-					<div id="timeline-post"class="medium-8 columns">
-						<div>
-					        <div><%= post.post_type %></div>				        
-					        <div class="post-content"><%= post.content %></div>
-					    </div>
+					<div class="row">
+						<div class="large-12 column">
+							<div class="content"><%= post.content %></div>
+						</div>
 					</div>
 				</div>
+			<% end %>
+			<% if post.post_type == 1 %>
+				<div class="post_item rep">
+					<div class="row">
+						<div class="large-12 column">
+							<%= image_tag(post.user.image.url(:small), :style => "width:40px; height:40px; float:left;") %>
+							<div class="rep-info">
+								reports to <a href="" style="color:#ffaa55; font-weight:bold;">Max Green</a> <i class="fi-torsos"></i>
+							</div>
+							<div class="name-date">
+								<a class="uname" href=""><%= post.user.first_name %> <%= post.user.last_name %></a><br /><span class="date"><%= post.created_at %></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+			<% if post.post_type == 2 %>
+				<div class="post_item new-hire">
+					<div class="row">
+						<div class="large-12 column">
+							<%= image_tag(post.user.image.url(:small), :style => "width:40px; height:40px; float:left;") %>
+							<div class="new-hire-info">
+								Senior Product Manager <i class="fi-plus"></i>
+							</div>
+							<div class="name-date">
+								<a class="uname" href=""><%= post.user.first_name %> <%= post.user.last_name %></a><br /><span class="date"><%= post.created_at %></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+			<% if post.post_type == 3 %>
+				<div class="post_item">
+					<div class="row">
+						<div class="large-12 column">
+							<%= image_tag(post.user.image.url(:small), :style => "width:40px; height:40px; float:left;") %>
+							<div class="name-date">
+								<a class="uname" href=""><%= post.user.first_name %> <%= post.user.last_name %></a><br /><span class="date"><%= post.created_at %></span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="large-12 column">
+							<div class="photo-content">
+								<img src="http://rack.2.mshcdn.com/media/ZgkyMDE1LzEwLzE2Lzk4L2NhdG1vdXRoLmQyOWFiLnBuZwpwCXRodW1iCTk1MHg1MzQjCmUJanBn/ee79f012/f77/cat-mouth.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
 		<% end %>
 		<br>
 	</div>

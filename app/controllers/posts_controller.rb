@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = @company.posts
+    @posts = @company.posts.order(created_at: :desc)
     
     @post = Post.new
     @users = User.all

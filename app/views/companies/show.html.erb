@@ -21,8 +21,8 @@
 					<div class="uright">
 						<span class="uname"><%= @root_user.first_name %> <%= @root_user.last_name %></span><br />
 						<span class="urole"><%= @root_user.job_role %></span><br />
-						<span class="uamount1">34 <i class="fi-torsos"></i></span>
-						<span class="uamount2">4 <i class="fi-torsos"></i></span>
+						<span class="uamount1"><%= @root_user.reports.count %> <i class="fi-torsos"></i></span>
+						<span class="uamount2"><%= @root_user.reports.count %> <i class="fi-torsos"></i></span>
 					</div>
 				</div>
 			<% end %>
@@ -35,8 +35,8 @@
 					<div class="uright">
 						<span class="uname"><%= user.first_name %> <%= user.last_name %></span><br />
 						<span class="urole"><%= user.job_role %></span><br />
-						<span class="uamount1">34 <i class="fi-torsos"></i></span>
-						<span class="uamount2">4 <i class="fi-torsos"></i></span>
+						<span class="uamount1"><%= user.reports.count %> <i class="fi-torsos"></i></span>
+						<span class="uamount2"><%= user.reports.count %> <i class="fi-torsos"></i></span>
 					</div>
 				</div>
 			<% end %>
