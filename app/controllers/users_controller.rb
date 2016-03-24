@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 	#authorize! :update, @user
 	@user = @company.users.find(params[:id])
 	
-	@users = User.all
+	@users = @company.users.all
 	@user_blank = User.new
 	@user_blank.first_name = "Root"
 	@user_blank.last_name = "aaaaa"
@@ -46,6 +46,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = @company.users.create(user_params)
+    
+    @post = Post.new
+    @post.post_type = 2
+    @post.content = @user.job_role
+    @post.save
 
     respond_to do |format|
       if @user.save

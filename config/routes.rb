@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 		collection do
 			post :import
 		end
+		resources :activities
 	 end
 	 resources :statements
 	 resources :posts do

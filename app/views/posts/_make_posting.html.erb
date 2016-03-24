@@ -10,12 +10,12 @@
 			</ul>
 		</div>
 	<% end %>
-	<!--<div class="field">
+	<div class="field">
 		<dl class="sub-nav" style="position:relative; right:15px;">
 		  <dd class="active text-click"><a href="javascript:void(0);"><i class="fi-align-left"></i> Text</a></dd>
-		  <dd class="photo-click"><a href="javascript:void(0);"><i class="fi-photo"></i> Photo</a></dd>
+		  <!--<dd class="photo-click"><a href="javascript:void(0);"><i class="fi-photo"></i> Photo</a></dd>-->
 		</dl>
-	</div>-->
+	</div>
     <div class="field content-toggler">
       <%= f.text_area :content %>
     </div>
@@ -28,6 +28,6 @@
     </div>
     <%= f.hidden_field :post_type, :value => 0 %>
     <div class="actions">
-      <%= f.submit "Post", :class => "button tiny radius" %>
+      <%= f.submit "Post", :class => "button secondary tiny radius" %>
     </div>
 <% end %>

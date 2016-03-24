@@ -13,7 +13,9 @@
 				<div class="post_item">
 					<div class="row">
 						<div class="large-12 column">
-							<i class="fi-link" style="float:right;"></i>
+							<%= link_to company_post_path(@company, post) do %>
+								<i class="fi-link" style="float:right; color:#a2a2a2;"></i>
+							<% end %>
 							
 							<%= image_tag(post.user.image.url(:small), :style => "width:40px; height:40px; float:left;") %>
 							<div class="name-date">
@@ -37,7 +39,9 @@
 				<div class="post_item rep">
 					<div class="row">
 						<div class="large-12 column">
-							<i class="fi-link" style="float:right;"></i>
+							<%= link_to company_post_path(@company, post) do %>
+								<i class="fi-link" style="float:right; color:#a2a2a2;"></i>
+							<% end %>
 							
 							<%= image_tag(post.user.image.url(:small), :style => "width:40px; height:40px; float:left;") %>
 							<div class="rep-info">
@@ -48,21 +52,33 @@
 							</div>
 						</div>
 					</div>
+					<div class="row">
+						<div class="large-12 column">
+							<span style="margin-left:50px; color:#a2a2a2;" class="radius secondary label">4 <i class="fi-heart" ></i> 2 <i class="fi-comment"></i></span>
+						</div>
+					</div>
 				</div>
 			<% end %>
 			<% if post.post_type == 2 %>
 				<div class="post_item new-hire">
 					<div class="row">
 						<div class="large-12 column">
-							<i class="fi-link" style="float:right;"></i>
+							<%= link_to company_post_path(@company, post) do %>
+								<i class="fi-link" style="float:right; color:#a2a2a2;"></i>
+							<% end %>
 							
 							<%= image_tag(post.user.image.url(:small), :style => "width:40px; height:40px; float:left;") %>
 							<div class="new-hire-info">
-								Senior Product Manager <i class="fi-plus"></i>
+								<%= post.user.job_role %> <i class="fi-plus"></i>
 							</div>
 							<div class="name-date">
 								<a class="uname" href=""><%= post.user.first_name %> <%= post.user.last_name %></a><br /><span class="date"><%= time_ago_in_words(post.created_at) %> ago</span>
 							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="large-12 column">
+							<span style="margin-left:50px; color:#a2a2a2;" class="radius secondary label">4 <i class="fi-heart" ></i> 2 <i class="fi-comment"></i></span>
 						</div>
 					</div>
 				</div>
@@ -71,7 +87,9 @@
 				<div class="post_item">
 					<div class="row">
 						<div class="large-12 column">
-							<i class="fi-link" style="float:right;"></i>
+							<%= link_to company_post_path(@company, post) do %>
+								<i class="fi-link" style="float:right; color:#a2a2a2;"></i>
+							<% end %>
 							
 							<%= image_tag(post.user.image.url(:small), :style => "width:40px; height:40px; float:left;") %>
 							<div class="name-date">

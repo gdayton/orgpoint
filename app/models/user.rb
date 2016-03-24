@@ -37,8 +37,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :photos
-  #has_one :location
-  #has_one :department
+  has_many :activities
   
   def self.import(file, company)
 	ss = open_spreadsheet(file)

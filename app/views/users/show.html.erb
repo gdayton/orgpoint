@@ -160,6 +160,31 @@ var openPhotoSwipe = function(index_p) {
 					</div>
 				</div>
 			</div>
+			<!--<div class="row">
+				<div class="large-12 column">
+					<br />
+					<h5><%= @user.first_name %>'s Reports</h5>
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="large-12 column indv-reports">  
+					<% if !@user.reports.nil? %>
+						<% @user.reports.each do |user| %>
+							<%= link_to company_user_path(@company, user), :style => "float:left;" do %>
+								<div class="user-view" style="margin:10px;">
+									<%= image_tag user.image.url(:med), :style => "width:60px; height:60px; float:left;" %>
+									<div class="uright">
+										<span class="uname"><%= user.first_name %> <%= user.last_name %></span><br />
+										<span class="urole"><%= user.job_role %></span><br />
+										<span class="uamount1"><%= user.reports.count %> <i class="fi-torsos"></i></span>
+										<span class="uamount2"><%= user.reports.count %> <i class="fi-torsos"></i></span>
+									</div>
+								</div>
+							<% end %>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
 			<br />
 			<div class="row">  
 				<div class="large-6 column"> 
@@ -226,29 +251,12 @@ var openPhotoSwipe = function(index_p) {
 					<h5>Recent Activity</h5>
 				</div>
 			</div>
-			
 			<div class="row">
 				<div class="large-12 column">
-					<br />
-					<h5><%= @user.first_name %>'s Reports</h5>
-				</div>
-			</div>
-			<div class="row">
-				<div class="large-12 column indv-reports">  
-					<% if !@user.reports.nil? %>
-						<% @user.reports.each do |user| %>
-							<%= link_to company_user_path(@company, user), :style => "float:left;" do %>
-								<div class="user-view" style="margin:10px;">
-									<%= image_tag user.image.url(:med), :style => "width:60px; height:60px; float:left;" %>
-									<div class="uright">
-										<span class="uname"><%= user.first_name %> <%= user.last_name %></span><br />
-										<span class="urole"><%= user.job_role %></span><br />
-										<span class="uamount1"><%= user.reports.count %> <i class="fi-torsos"></i></span>
-										<span class="uamount2"><%= user.reports.count %> <i class="fi-torsos"></i></span>
-									</div>
-								</div>
-							<% end %>
-						<% end %>
+					<% @user.activities.each do |activity| %>
+						<div class="" style="margin:5px;">
+							<%= activity.content %>
+						</div>
 					<% end %>
 				</div>
 			</div>
