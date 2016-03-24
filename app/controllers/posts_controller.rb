@@ -35,10 +35,11 @@ class PostsController < ApplicationController
   def create
     @post = @company.posts.create(post_params)
     @post.user_id = current_user.id
+    @post.company_id = current_user.company_id
     
     respond_to do |format|
       if @post.save
-        format.html { redirect_to company_posts_path(@company), notice: 'Post was successfully created.' }
+        format.html { redirect_to company_posts_path(@company), notice: 'no' }
         #format.json { render :show, status: :created, location: @post }
         format.json { render "POSTED!!!" }
       else

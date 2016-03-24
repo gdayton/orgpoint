@@ -1,0 +1,33 @@
+<%= form_for([@company, @post]) do |f| %>
+	<% if @post.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being made:</h2>
+			
+			<ul>
+				<% @post.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<!--<div class="field">
+		<dl class="sub-nav" style="position:relative; right:15px;">
+		  <dd class="active text-click"><a href="javascript:void(0);"><i class="fi-align-left"></i> Text</a></dd>
+		  <dd class="photo-click"><a href="javascript:void(0);"><i class="fi-photo"></i> Photo</a></dd>
+		</dl>
+	</div>-->
+    <div class="field content-toggler">
+      <%= f.text_area :content %>
+    </div>
+    <div class="field photo-toggler" style="display:none;">
+      <%= f.file_field :photo %>
+    </div>
+    <div class="field" style="float:right; padding-top:5px;">
+	    <span style="color:#a2a2a2;">Posting as</span> <!--<%= image_tag current_user.image.url(:small), :style => "width:15px; height:15px;" %>-->
+	    <%= current_user.first_name %> <%= current_user.last_name %>
+    </div>
+    <%= f.hidden_field :post_type, :value => 0 %>
+    <div class="actions">
+      <%= f.submit "Post", :class => "button tiny radius" %>
+    </div>
+<% end %>

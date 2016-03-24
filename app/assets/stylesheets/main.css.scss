@@ -289,6 +289,71 @@ body{
 .user-view .uamount2{
 	color:#cc8100;
 }
+
+.post_item{
+	padding:5px;
+	margin-bottom:10px;
+}
+.post_item .date{
+	color:gray;
+	margin-left:10px;
+	font-size:12px;
+}
+.post_item .uname{
+	color:black;
+	font-size:14px;
+	margin-left:10px;
+}
+.post_item .content{
+	margin:10px;
+	margin-left:50px;
+}
+.post_item .name-date{
+	/*position:relative;
+	top:5px;*/
+	margin-left:10px;
+	margin-top:3px;
+}
+.new-hire{
+	background-color:#e8fbe8;
+}
+.org{
+	background-color:#edf6ff;
+}
+.rep{
+	background-color:#ffffed;
+}
+.org-info{
+	color:#55aaff;
+	float:right;
+	font-size:14px;
+	margin-top:12px;
+	margin-right:10px;
+}
+.new-hire-info{
+	color:#25da25;
+	float:right;
+	font-size:14px;
+	margin-top:12px;
+	margin-right:10px;
+}
+.rep-info{
+	color:#ffaa55;
+	float:right;
+	font-size:14px;
+	margin-top:12px;
+	margin-right:10px;
+}
+.photo-content{
+	margin-top:10px;
+}
+.make-post{
+	border-bottom:1px solid #f2f2f2;
+	margin-bottom:20px;
+}
+.make-post textarea{
+	resize:none;
+}
 /*
 .overall-number{
 	font-size:45px;

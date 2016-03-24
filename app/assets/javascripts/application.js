@@ -27,7 +27,14 @@
 $(document).on('ready page:load', function () {
 	$(function(){ $(document).foundation(); });
 	
-	/*$(".autocomplete").autocomplete({
-		source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
-	});*/
+	/* Feed Javascript */
+	$(".text-click").click(function(){
+		$(".content-toggler").show(); $(".photo-toggler").hide();
+		$(".text-click").addClass("active"); $(".photo-click").removeClass("active");
+	});
+	
+	$(".photo-click").click(function(){
+		$(".photo-toggler").show(); $(".content-toggler").hide();
+		$(".photo-click").addClass("active"); $(".text-click").removeClass("active");
+	});
 });

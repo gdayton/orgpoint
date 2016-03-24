@@ -82,7 +82,7 @@
 		  </section>
 	  </nav>
 	</div>
-	<% if flash[:alert] %>
+	<% if flash[:alert] && flash[:alert] != "no" %>
 		<div class="row" id="fnotice">
 			<div class="large-12 column">
 				<div data-alert class="alert-box alert radius flash-banner-error">
@@ -92,7 +92,7 @@
 			</div>
 		</div>
 	<% end %>
-	<% if flash[:notice] %>
+	<% if flash[:notice] && flash[:notice] != "no"  %>
 		<div class="row" id="fnotice">
 			<div class="large-12 column">
 				<div data-alert class="alert-box radius flash-banner-notice">
